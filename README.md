@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/HolisticParallelogram/crunchy-tunes.png?label=ready&title=Ready)](https://waffle.io/HolisticParallelogram/crunchy-tunes)
 # crunchy-tunes
 A music player and aggregator built on the Spotify, YouTube and Soundcloud APIs.
 
