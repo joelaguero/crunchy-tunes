@@ -76,10 +76,8 @@ class App extends React.Component {
               }]}
             />
             <SongPlayer track = {this.state.currentTrack} />
-            <Button label="Sign Up!" style={{color: 'white', paddingLeft: '45px' }} />
-            <Button label="Sign In!" style={{color: 'white' }} />   
+            <Nav handleSearch = { this.handleSearch.bind(this) } searching={ this.state.searching } />
           </AppBar>
-          <Nav handleSearch = { this.handleSearch.bind(this) } searching={ this.state.searching } />
           <CardsContainer tracks = {this.state.tracks}
             handleCardPlay = {this.handleCardPlay.bind(this)}
           />
