@@ -5,7 +5,7 @@
   "main": "./client/index.html",
   "scripts": {
     "test": "karma start",
-    "dev-start": "webpack -d && node server/server.js & webpack --watch",
+    "dev-start": "webpack -d && nodemon server/server.js & webpack --watch",
     "prod-start": "webpack && PORT=80 forever start server/server.js",
     "aws-deploy": "aws deploy create-deployment --application-name crunchy-tunes --deployment-config-name CodeDeployDefault.OneAtATime --deployment-group-name crunchy-tunes-dep-group --s3-location bucket=crunchytunes,bundleType=zip,key=crunchy-tunes.zip",
     "aws-push": "aws deploy push --application-name crunchy-tunes --description --ignore-hidden-files --s3-location s3://crunchytunes/crunchy-tunes.zip --source ."
