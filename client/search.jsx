@@ -24,7 +24,7 @@ class Search extends React.Component {
   render() {
     return (
     <span className="search-bar form-inline" style={{ display: 'inline-flex' }}>
-      <Input type="text" style={{ width: '500px' }} label="Search YouTube, SoundCloud and Spotify!" icon="search"
+      <Input type="text" style={{ width: '500px' }} label="Search SoundCloud for some Crunchy Tunes!" icon="search"
         onChange={this.handleChange.bind(this)} value ={this.state.searchText} />
       { this.props.searching ? <ProgressBar type='circular' mode='indeterminate' multicolor /> : null}
     </span>
