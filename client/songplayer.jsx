@@ -9,16 +9,13 @@ const SongPlayer = ({ track }) => {
       embed = <iframe src={`https://embed.spotify.com/?uri=spotify%3Atrack%3A${track.contentId}`} width="500" height="80" frameBorder="0" allowTransparency="true"></iframe>;
       break;
     case 'SoundCloud':
-      embed = <audio controls src={`https://api.soundcloud.com/tracks/${track.contentId}/stream?client_id=${keys.soundCloud}`}></audio> 
+      embed = <audio controls src={`https://api.soundcloud.com/tracks/${track.contentId}/stream?client_id=${keys.soundCloud}`}></audio>;
       break;
     case 'YouTube':
-      embed = <audio controls src={`http://www.youtubeinmp3.com/fetch/?video=http://www.youtube.com/watch?v=${track.contentId}`}></audio>
-      break;
-    case 'test':
-      embed = <iframe src="https://embed.spotify.com/?uri=spotify%3Atrack%3A0wcbltC75nBbE4eFPOynEx" width="500" height="80" frameBorder="0" allowTransparency="true"></iframe>;
+      embed = <audio controls src={`http://www.youtubeinmp3.com/fetch/?video=http://www.youtube.com/watch?v=${track.contentId}`}></audio>;
       break;
     default:
-      console.log('uh oh');
+      embed = <div>'Sorry, we encountered an error detecting the API source.'</div>;
   }
 
   return (
@@ -26,6 +23,10 @@ const SongPlayer = ({ track }) => {
       <div>{embed}</div>
     </div>
   );
+};
+
+SongPlayer.propTypes = {
+  track: React.PropTypes.object.isRequired,
 };
 
 export default SongPlayer;

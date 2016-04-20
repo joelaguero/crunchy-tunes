@@ -5,8 +5,6 @@ import CardsContainer from './cardsContainer.jsx';
 import AppBar from 'react-toolbox/lib/app_bar';
 import Navigation from 'react-toolbox/lib/navigation';
 import queryAll from './queryAll.js';
-import _ from 'underscore';
-import Button from 'react-toolbox/lib/button';
 
 class App extends React.Component {
   constructor(props) {
@@ -24,6 +22,8 @@ class App extends React.Component {
       },
       searching: false,
     };
+    this.handleSearch = this.handleSearch.bind(this);
+    this.handleCardPlay = this.handleCardPlay.bind(this);
   }
 
   componentDidMount() {
@@ -31,7 +31,6 @@ class App extends React.Component {
     queryAll({ query: 'Kanye',
       })
       .then((results) => {
-        console.log(results);
         self.setState({
           tracks: results,
         });
@@ -46,7 +45,7 @@ class App extends React.Component {
 
   handleSearch(value) {
     const self = this;
-    if(value === null) {
+    if (value === null) {
       this.setState({
         searching: false,
       });
@@ -67,8 +66,10 @@ class App extends React.Component {
     return (
       <div>
           <AppBar className="appBar" >
-            <Navigation type="horizontal" style= { { width: '700px', }} actions={[
-              {
+            <Navigation
+              type="horizontal"
+              style= { { width: '700px' }}
+              actions={[{
                 label: 'Crunchy Tunes',
                 raised: true,
                 accent: true,
@@ -76,10 +77,14 @@ class App extends React.Component {
               }]}
             />
             <SongPlayer track = {this.state.currentTrack} />
-            <Nav handleSearch = { this.handleSearch.bind(this) } searching={ this.state.searching } />
+            <Nav
+              handleSearch={this.handleSearch}
+              searching={this.state.searching}
+            />
           </AppBar>
-          <CardsContainer tracks = {this.state.tracks}
-            handleCardPlay = {this.handleCardPlay.bind(this)}
+          <CardsContainer
+            tracks={this.state.tracks}
+            handleCardPlay={this.handleCardPlay}
           />
       </div>
     );

@@ -8,13 +8,13 @@ class Search extends React.Component {
     super(props);
 
     this.state = {
-      searchText: null,
+      searchText: '',
     };
     this.debouncedSearch = _.debounce(this.props.handleSearch, 150);
+    this.handleChange.bind(this);
   }
 
   handleChange(e) {
-    const self = this;
     this.setState({
       searchText: e,
     });
@@ -24,12 +24,28 @@ class Search extends React.Component {
   render() {
     return (
     <span className="search-bar form-inline" style={{ display: 'inline-flex' }}>
-      <Input type="text" style={{ width: '500px' }} label="Search SoundCloud for some Crunchy Tunes!" icon="search"
-        onChange={this.handleChange.bind(this)} value ={this.state.searchText} />
-      { this.props.searching ? <ProgressBar type='circular' mode='indeterminate' multicolor /> : null}
+      <Input type="text"
+        style={{ width: '500px' }}
+        label="Search SoundCloud for some Crunchy Tunes!"
+        icon="search"
+        onChange={this.handleChange}
+        value ={this.state.searchText}
+      />
+      { this.props.searching ?
+          <ProgressBar
+            type="circular"
+            mode="indeterminate"
+            multicolor
+          />
+      : null}
     </span>
     );
   }
 }
+
+Search.propTypes = {
+  handleSearch: React.PropTypes.func.isRequired,
+  searching: React.PropTypes.bool.isRequired,
+};
 
 export default Search;
