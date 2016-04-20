@@ -3,8 +3,8 @@ import Promise from 'bluebird';
 import SC from 'soundcloud';
 // Returns media link and static content (thumbnails, artist, title):
 
-const searchSoundCloud = ({ query }) => {
-  return new Promise((resolve, reject) => {
+const searchSoundCloud = ({ query }) => (
+  new Promise((resolve) => {
     // initialize SC session with client_id
     SC.initialize({
       client_id: process.env.SOUNDCLOUD_ID || keys.soundCloud,
@@ -16,16 +16,17 @@ const searchSoundCloud = ({ query }) => {
     })
     .then((arrayOfSongs) => {
     // add source tag before returning promise
-      const mapResult = arrayOfSongs.map((songObj) => {
-        songObj.apiSource = 'SoundCloud';
-        return songObj;
+      const mapResult = arrayOfSongs.map((obj) => {
+        const song = obj;
+        song.apiSource = 'SoundCloud';
+        return song;
       });
       resolve(mapResult);
     })
     .catch((err) => {
       throw err;
     });
-  });
-};
+  })
+);
 
 export default searchSoundCloud;

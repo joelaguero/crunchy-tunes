@@ -3,7 +3,7 @@ import searchSpotify from '../requestSpotifyUtils.js';
 
 describe('Spotify search API request', () => {
   let returned;
-  const query = {query: 'kanye west'};
+  const query = { query: 'kanye west' };
   // due to async get request, need to pass in special Jasmine callback done
   beforeEach((done) => {
     searchSpotify(query)
@@ -16,7 +16,6 @@ describe('Spotify search API request', () => {
       .catch((err) => {
         throw err;
         // special callback invocation
-        done();
       });
   });
 

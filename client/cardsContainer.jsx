@@ -1,35 +1,36 @@
 import React from 'react';
-import Button from 'react-toolbox/lib/button';
-import { Card, CardMedia, CardTitle, CardText, CardActions } from 'react-toolbox/lib/card';
-import ClassNames from 'classnames';
+import { Card, CardMedia, CardTitle } from 'react-toolbox/lib/card';
+import classNames from 'classnames';
 import style from './styles/toolbox-theme';
-
 
 const CardsContainer = ({ tracks, handleCardPlay }) => {
   let cards = tracks.map((track) =>
     <Card onClick={() => handleCardPlay(track)}
       key={track.contentId}
-      className={ClassNames(style['card'])}
+      className={classNames(style.card)}
       style={{ width: '350px', height: '300px', margin: '15px' }}
     >
-      <div className={ClassNames(style['image-container'])}>
+      <div className={classNames(style['image-container'])}>
         <CardTitle
-          className={ClassNames(style['source-logo'])}
-          avatar= {
-            track.apiSource === 'Spotify' ? 'http://www.iconarchive.com/download/i98446/dakirby309/simply-styled/Spotify.ico' :
-              track.apiSource === 'SoundCloud' ? 'https://c1.staticflickr.com/9/8082/8292777643_65090144e9.jpg' :
-                'https://cdn0.iconfinder.com/data/icons/social-networks-and-media-flat-icons/136/Social_Media_Socialmedia_network_share_socialnetwork_network-30-512.png'
-          }
+          className={classNames(style['source-logo'])}
+          avatar={ (() => {
+            switch (track.apiSource) {
+              case 'Spotify': return 'http://www.iconarchive.com/download/i98446/dakirby309/simply-styled/Spotify.ico';
+              case 'SoundCloud': return 'https://c1.staticflickr.com/9/8082/8292777643_65090144e9.jpg';
+              case 'YouTube': return 'https://cdn0.iconfinder.com/data/icons/social-networks-and-media-flat-icons/136/Social_Media_Socialmedia_network_share_socialnetwork_network-30-512.png';
+              default: return '';
+            }
+          })()}
         />
         <CardMedia
           aspectRatio="wide"
           image={track.imagePath}
         />
       </div>
-      <div className={ClassNames(style['card-title'])}>
+      <div className={classNames(style['card-title'])}>
       {track.songTitle}
       </div>
-      <div className={ClassNames(style['card-overlay'])}>
+      <div className={classNames(style['card-overlay'])}>
       </div>
     </Card>
   );
@@ -40,6 +41,9 @@ const CardsContainer = ({ tracks, handleCardPlay }) => {
   );
 };
 
+CardsContainer.propTypes = {
+  tracks: React.PropTypes.array.isRequired,
+  handleCardPlay: React.PropTypes.func.isRequired,
+};
+
 export default CardsContainer;
-
-

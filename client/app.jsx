@@ -22,8 +22,8 @@ class App extends React.Component {
       },
       searching: false,
     };
-    this.handleSearch.bind(this);
-    this.handleCardPlay.bind(this);
+    this.handleSearch = this.handleSearch.bind(this);
+    this.handleCardPlay = this.handleCardPlay.bind(this);
   }
 
   componentDidMount() {
