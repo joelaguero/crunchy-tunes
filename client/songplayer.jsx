@@ -1,5 +1,6 @@
 import React from 'react';
 import keys from '../config/keys.js';
+import sampleDOMElement from './visualizer.js';
 
 const SongPlayer = ({ track }) => {
   let embed;
@@ -12,7 +13,7 @@ const SongPlayer = ({ track }) => {
       embed = <audio autoPlay controls src={`https://api.soundcloud.com/tracks/${track.contentId}/stream?client_id=${keys.soundCloud}`}></audio>;
       break;
     case 'YouTube':
-      embed = <audio autoPlay controls src={`http://www.youtubeinmp3.com/fetch/?video=http://www.youtube.com/watch?v=${track.contentId}`}></audio>;
+      embed = <audio id="player" autoPlay controls src={`http://www.youtubeinmp3.com/fetch/?video=http://www.youtube.com/watch?v=${track.contentId}`}></audio>;
       break;
     default:
       embed = <div>'Sorry, we encountered an error detecting the API source.'</div>;
