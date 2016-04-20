@@ -56,6 +56,8 @@
     "webpack": "^1.12.14"
   },
   "devDependencies": {
+    "cookie-parser": "^1.4.1",
+    "express": "^4.13.4",
     "jasmine": "^2.4.1",
     "karma": "^0.13.22",
     "karma-chrome-launcher": "^0.2.3",
@@ -64,6 +66,8 @@
     "karma-sourcemap-loader": "^0.3.7",
     "karma-spec-reporter": "0.0.26",
     "karma-webpack": "^1.7.0",
-    "react-addons-test-utils": "^15.0.0"
+    "querystring": "^0.2.0",
+    "react-addons-test-utils": "^15.0.0",
+    "request": "^2.72.0"
   }
 }
