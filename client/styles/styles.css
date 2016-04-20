@@ -1,18 +1,24 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
 .cardsContainer {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-around;
   width: 100%;
+  padding-top: 100px;
 }
 
 .navBar {
   padding-top: 10px;
-  width: 700px;
 }
 
 .appBar {
   position: fixed;
+  width: 100%;
 }
 
 .style__circular___2yZZn {
