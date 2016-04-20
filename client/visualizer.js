@@ -26,7 +26,7 @@ sampleDOMElement.prototype.sampleAudioStream = function(analyser, streamData) {
       // $('#band-' + i).css('background-color', 'hsl('+ (325 - (streamData[i] / (256) * 360)) % 360+', 100%, 50%)');
       volume += streamData[i];
     }
-    console.log(streamData);
+    // console.log(streamData);
     // console.log(volume);
     return volume;
 };
