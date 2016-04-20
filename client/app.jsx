@@ -95,7 +95,9 @@ class App extends React.Component {
             />
           </AppBar>
           <div className="main-container">
-            <Visualization />
+            <Visualization
+              audioData={[133, 100, 30, 99, 153, 170, 249, 253, 75, 116, 109, 203]}
+            />
             <CardsContainer
               tracks={this.state.tracks}
               handleCardPlay={this.handleCardPlay}
