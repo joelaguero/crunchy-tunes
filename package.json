@@ -50,6 +50,7 @@
     "react-dom": "^15.0.0",
     "react-toolbox": "^0.16.2",
     "sass-loader": "^3.2.0",
+    "sequelize": "^3.21.0",
     "soundcloud": "^3.1.0",
     "style-loader": "^0.13.1",
     "toolbox-loader": "0.0.3",
