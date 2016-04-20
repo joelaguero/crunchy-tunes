@@ -9,8 +9,8 @@ const queryAll = ({ query }) => {
   return new Promise((resolve, reject) => {
     const queryEach = [
       // searchSpotify({ query }),
-      searchSoundCloud({ query })
-      // searchYouTube({ query }),
+      searchSoundCloud({ query }),
+      searchYouTube({ query })
     ];
     // return promises from all three queries in a single array
     Promise.all(queryEach)
