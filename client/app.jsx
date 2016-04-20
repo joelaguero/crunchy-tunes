@@ -4,6 +4,7 @@ import SongPlayer from './songplayer.jsx';
 import CardsContainer from './cardsContainer.jsx';
 import AppBar from 'react-toolbox/lib/app_bar';
 import Navigation from 'react-toolbox/lib/navigation';
+import Visualization from './visualization.jsx';
 import queryAll from './queryAll.js';
 
 class App extends React.Component {
@@ -82,10 +83,13 @@ class App extends React.Component {
               searching={this.state.searching}
             />
           </AppBar>
-          <CardsContainer
-            tracks={this.state.tracks}
-            handleCardPlay={this.handleCardPlay}
-          />
+          <div className="main-container">
+            <Visualization />
+            <CardsContainer
+              tracks={this.state.tracks}
+              handleCardPlay={this.handleCardPlay}
+            />
+          </div>
       </div>
     );
   }
