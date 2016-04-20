@@ -6,6 +6,15 @@ import AppBar from 'react-toolbox/lib/app_bar';
 import Navigation from 'react-toolbox/lib/navigation';
 import Visualization from './visualization.jsx';
 import queryAll from './queryAll.js';
+import sampleDOMElement from './visualizer.js';
+
+var addPlayListener = function() {
+  var media = document.getElementById('player');
+  media.addEventListener('play', function(e)
+  {
+    sampleDOMElement('player');
+  }, false);
+};
 
 class App extends React.Component {
   constructor(props) {
@@ -35,7 +44,9 @@ class App extends React.Component {
         self.setState({
           tracks: results,
         });
-      });
+      })
+      .then(() =>
+        new sampleDOMElement('player'));
   }
 
   handleCardPlay(track) {
