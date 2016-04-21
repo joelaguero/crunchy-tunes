@@ -21,7 +21,6 @@ function sampleAudioStream(analyser, strData, callback) {
   if (callback) {
     callback(strData);
   }
-  // console.log(volume);
   return volume;
 };
 

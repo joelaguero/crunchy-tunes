@@ -15,16 +15,14 @@ class Visualization extends React.Component {
   }
 
   componentDidUpdate() {
-    // const el = this.refs.DOMnode;
-    // d3Visual.update(el, {
-    //
-    // });
+    const el = this.refs.DOMnode;
+    d3Visual.update(el, this.getVisualState());
   }
 
+  // helper function for getting the visual state
+  // this allows us to extend it later with different information beyond audioData
   getVisualState() {
-    return {
-      audioData: this.props.audioData,
-    };
+    return this.props.audioData;
   }
 
   render() {
@@ -34,7 +32,7 @@ class Visualization extends React.Component {
 }
 
 Visualization.propTypes = {
-  audioData: React.PropTypes.number.isRequired,
+  audioData: React.PropTypes.array.isRequired,
 };
 
 export default Visualization;
