@@ -27,6 +27,9 @@ const Song = db.define('Song',
       type: Sequelize.STRING,
       field: 'api_source',
     },
+  },
+  {
+    freezeTableName: true;
   }
 );
 
