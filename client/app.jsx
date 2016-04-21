@@ -40,9 +40,9 @@ class App extends React.Component {
       })
       .then(() => {
         const playerSampler = new SampleDOMElement('player');
-        setInterval(function() {
+        setInterval(() => {
           playerSampler.sampleAudioStream(playerSampler.analyser, self.state.audioData,
-            function(data) {
+            (data) => {
               self.setState({
                 audioData: data,
               });
@@ -98,7 +98,10 @@ class App extends React.Component {
             />
           </AppBar>
           <div className="main-container">
-            <Visualization visualize={this.visualize} audioData={[this.state.audioData]} />
+            <Visualization
+              visualize={this.visualize}
+              audioData={[this.state.audioData]}
+            />
             <CardsContainer
               tracks={this.state.tracks}
               handleCardPlay={this.handleCardPlay}

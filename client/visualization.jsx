@@ -6,6 +6,10 @@ import d3Visual from './d3Visual';
 // designed to be stateless, meaning it doesn't hold on to any state-related data that
 // gets passed to it.
 class Visualization extends React.Component {
+  constructor(props) {
+    super(props);
+    console.log(props);
+  }
 
   componentDidMount() {
     const el = this.refs.DOMnode;
@@ -22,7 +26,7 @@ class Visualization extends React.Component {
 }
 
 Visualization.propTypes = {
-  audioData: React.PropTypes.array.isRequired,
+  audioData: React.PropTypes.number,
 };
 
 export default Visualization;

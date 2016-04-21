@@ -8,7 +8,7 @@ d3Visual.create = function create(el, props, audioData) {
     .attr('width', props.width)
     .attr('height', props.height);
 
-  const circles = svg.selectAll('circle')
+  const circles = svg.select('circle')
     .data(audioData)
     .enter()
     .append('circle')
