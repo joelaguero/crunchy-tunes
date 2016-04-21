@@ -34,7 +34,7 @@ module.exports.spotifyAudioFeatures = function(req, res) {
         json: true
       };
       request.get(options, function(error, response, body) {
-        console.log('AUDIO FEATURES results for your spotify id', body);
+        res.json(body);
       });
     }
   });

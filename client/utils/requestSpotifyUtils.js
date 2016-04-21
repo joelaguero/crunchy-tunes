@@ -9,28 +9,10 @@ const searchSpotify = ({ query }) => (
       type: 'track',
       limit: 50,
     })
-    .then((result) => {
+    .done((result) => {
       // resolve only the array of song objects
       // resolve(result.tracks.items);
-
-      // =============== Spotify Audio Results Proof of Concept ===============
-      // This will move to a click handler function when a user plays a track these
-      // results will be retrieved.
-      var exampleSongId = result.tracks.items[0]['id'];
-      console.log("SPOTIFY EXAMPLE ID:", exampleSongId);
-      $.ajax({
-        url: '/api/spotifyAudioFeatures',
-        method: 'POST',
-        data: {
-          test: 'somethingshere',
-          id: exampleSongId
-        },
-        success: function(data) {
-          console.log('THIS IS DATA IN POC', data);
-        }
-      });
-      // ================ End of Proof of Concept ===============
-
+      
       const arrayOfSongs = result.tracks.items;
       // add source tag before returning promise
       const mapResult = arrayOfSongs.map((obj) => {
