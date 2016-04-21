@@ -1,29 +1,29 @@
-import Sequelize from 'sequelize';
-import db from '../db/db.js';
+var Sequelize = require('sequelize');
+var db = require('../db.js');
 
-const User = db.define('User',
+var User = db.define('User',
   {
     id: {
       type: Sequelize.UUID,
       defaultValue: Sequelize.UUIDV1,
-      primaryKey: true,
+      primaryKey: true
     },
     googleUserId: {
       type: Sequelize.STRING,
-      field: 'google_user_id',
+      field: 'google_user_id'
     },
     firstName: {
       type: Sequelize.STRING,
-      field: 'first_name',
+      field: 'first_name'
     },
     lastName: {
       type: Sequelize.STRING,
-      field: 'last_name',
-    },
+      field: 'last_name'
+    }
   }, 
   {
-    freezeTableName: true,
+    freezeTableName: true
   }
 );
 
-export default User;
+module.exports = User;

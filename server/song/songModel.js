@@ -1,36 +1,36 @@
-import Sequelize from 'sequelize';
-import db from '../db.js';
+var Sequelize = require('sequelize');
+var db = require('../db.js');
 
-const Song = db.define('Song',
+var Song = db.define('Song',
   {
     id: {
       type: Sequelize.UUID,
       defaultValue: Sequelize.UUIDV1,
-      primaryKey: true,
+      primaryKey: true
     },
     contentId: {
       type: Sequelize.STRING,
-      field: 'content_id',
+      field: 'content_id'
     },
     imagePath: {
       type: Sequelize.STRING,
-      filed: 'image_path',
+      filed: 'image_path'
     },
     creator: {
-      type: Sequelize.STRING,
+      type: Sequelize.STRING
     },
     songTitle: {
       type: Sequelize.STRING,
-      field: 'song_title',
+      field: 'song_title'
     },
     apiSource: {
       type: Sequelize.STRING,
-      field: 'api_source',
-    },
+      field: 'api_source'
+    }
   },
   {
-    freezeTableName: true;
+    freezeTableName: true
   }
 );
 
-export default Song;
+module.exports = Song;

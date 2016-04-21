@@ -1,8 +1,8 @@
-import Sequelize from 'sequelize';
-import password from '../config/mysqlsetup.js'
+var Sequelize = require('sequelize');
+var password = require('../config/mysqlsetup.js');
 
-const db = new Sequelize('crunchy', 'root', password, {
+var db = new Sequelize('crunchy', 'root', password, {
   define: {timestamps: false}
 });
 
-export default db;
+module.exports = db;
