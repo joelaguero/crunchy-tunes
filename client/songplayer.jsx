@@ -1,6 +1,5 @@
 import React from 'react';
 import keys from '../config/keys.js';
-import $ from 'jquery';
 
 const SongPlayer = ({ track }) => {
   let embed;
