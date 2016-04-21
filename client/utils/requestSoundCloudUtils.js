@@ -1,4 +1,4 @@
-import keys from '../config/keys.js';
+import keys from '../../config/keys.js';
 import Promise from 'bluebird';
 import SC from 'soundcloud';
 // Returns media link and static content (thumbnails, artist, title):

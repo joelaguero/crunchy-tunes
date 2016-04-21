@@ -1,5 +1,5 @@
 import React from 'react';
-import d3Visual from './d3Visual';
+import d3Visual from '../utils/d3Visual';
 
 // this is the component that contains the visualization. the visualization is rendered
 // by passing data to a d3 object that handles all d3 rendering. the d3 object is
@@ -10,7 +10,7 @@ class Visualization extends React.Component {
     const el = this.refs.DOMnode;
     d3Visual.create(el, {
       width: '100%',
-      height: '500px',
+      height: '100%',
     }, this.getVisualState());
   }
 
@@ -27,7 +27,8 @@ class Visualization extends React.Component {
 
   render() {
     return (
-      <div ref="DOMnode" className="visualization">{this.props.audioData}</div>);
+        <div ref="DOMnode" className="visualization"></div>
+    );
   }
 }
 

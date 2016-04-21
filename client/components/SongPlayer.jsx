@@ -1,5 +1,5 @@
 import React from 'react';
-import keys from '../config/keys.js';
+import keys from '../../config/keys.js';
 
 const SongPlayer = ({ track }) => {
   let embed;
@@ -9,7 +9,7 @@ const SongPlayer = ({ track }) => {
       embed = <iframe id="player" src={`https://embed.spotify.com/?uri=spotify%3Atrack%3A${track.contentId}`} width="500" height="80" frameBorder="0" allowTransparency="true"></iframe>;
       break;
     case 'SoundCloud':
-      embed = <audio id="player" autoPlay crossOrigin="anonymous" controls src={`http://api.soundcloud.com/tracks/${track.contentId}/stream?client_id=${keys.soundCloud}`}></audio>;
+      embed = <audio id="player" className="canProcess" autoPlay crossOrigin="anonymous" controls src={`http://api.soundcloud.com/tracks/${track.contentId}/stream?client_id=${keys.soundCloud}`}></audio>;
       break;
     case 'YouTube':
       embed = <audio id="player" autoPlay controls src={`http://www.youtubeinmp3.com/fetch/?video=http://www.youtube.com/watch?v=${track.contentId}`}></audio>;

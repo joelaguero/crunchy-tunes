@@ -5,6 +5,13 @@ body {
 
 .visualization {
   background-color: white;
+  width: 100%;
+  min-height: 300px;
+}
+
+.visualization-canvas {
+  height: 100%;
+  min-height: 300px;
 }
 
 .main-container {
@@ -28,7 +35,7 @@ body {
   width: 100%;
 }
 .style__card___1QRTe {
-  width: 20% !important;
+  width: 25% !important;
 }
 .style__circular___2yZZn {
   padding-top: 40px !important;
@@ -36,4 +43,8 @@ body {
 
 .style__root___2LQf5 {
   background-color: white !important;
+}
+
+.fixed {
+
 }

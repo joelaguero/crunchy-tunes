@@ -27,7 +27,6 @@ d3Visual.update = function update(el, audioData) {
 
   const circles = svg.selectAll('.circle')
     .data(audioData[0]);
-
   circles
     .enter()
     .append('circle')
