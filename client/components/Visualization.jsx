@@ -1,5 +1,5 @@
 import React from 'react';
-import d3Visual from './d3Visual';
+import d3Visual from '../utils/d3Visual';
 
 // this is the component that contains the visualization. the visualization is rendered
 // by passing data to a d3 object that handles all d3 rendering. the d3 object is

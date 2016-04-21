@@ -11,7 +11,7 @@ module.exports = {
   // the top-level file that then `requires` some other files, which then
   // `require` some other files, etc. Webpack pulls these all into a modularized
   // bundle.
-  entry: './client/entry.jsx',
+  entry: './client/components/entry.jsx',
 
   // `output` is an object with options for the bundle that Webpack creates
   // out of your source files.

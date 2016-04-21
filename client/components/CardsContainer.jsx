@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, CardMedia, CardTitle } from 'react-toolbox/lib/card';
 import classNames from 'classnames';
-import style from './styles/toolbox-theme';
+import style from '../styles/toolbox-theme';
 
 const CardsContainer = ({ tracks, handleCardPlay }) => {
   let cards = tracks.map((track) =>

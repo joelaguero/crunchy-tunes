@@ -1,12 +1,17 @@
 import React from 'react';
-import Nav from './nav.js';
-import SongPlayer from './songplayer.jsx';
-import CardsContainer from './cardsContainer.jsx';
 import AppBar from 'react-toolbox/lib/app_bar';
 import Navigation from 'react-toolbox/lib/navigation';
-import Visualization from './visualization.jsx';
-import queryAll from './queryAll.js';
-import SampleDOMElement from './visualizer.js';
+
+import Nav from './Nav.js';
+import SongPlayer from './SongPlayer.jsx';
+import NowPlaying from './NowPlaying.jsx';
+import SongQueueContainer from './SongQueueContainer.jsx';
+import SavedSongContainer from './SavedSongContainer.jsx';
+import CardsContainer from './CardsContainer.jsx';
+import Visualization from './Visualization.jsx';
+
+import queryAll from '../utils/queryAll.js';
+import SampleDOMElement from '../utils/visualizer.js';
 
 class App extends React.Component {
   constructor(props) {
@@ -24,9 +29,19 @@ class App extends React.Component {
       },
       searching: false,
       audioData: new Uint8Array(100),
+      savedSongs: [
+
+      ],
+      queuedSongs: [
+
+      ],
     };
     this.handleSearch = this.handleSearch.bind(this);
-    this.handleCardPlay = this.handleCardPlay.bind(this);
+    this.handlePlay = this.handlePlay.bind(this);
+    // this.handleAddToQueue = this.handleAddToQueue.bind(this);
+    // this.handleAddToSaved = this.handleAddToSaved.bind(this);
+    // this.handleRemoveFromQueue = this.handleRemoveFromQueue.bind(this);
+    // this.handleRemoveFromSaved = this.handleRemoveFromSaved.bind(this);
   }
 
   componentDidMount() {
@@ -52,7 +67,7 @@ class App extends React.Component {
       .then(); // initialize d3
   }
 
-  handleCardPlay(track) {
+  handlePlay(track) {
     this.setState({
       currentTrack: track,
     });
@@ -91,21 +106,31 @@ class App extends React.Component {
                 icon: 'audiotrack',
               }]}
             />
-            <SongPlayer track = {this.state.currentTrack} />
             <Nav
               handleSearch={this.handleSearch}
               searching={this.state.searching}
             />
           </AppBar>
-          <div className="main-container">
-            <Visualization
-              visualize={this.visualize}
-              audioData={[this.state.audioData]}
-            />
-            <CardsContainer
-              tracks={this.state.tracks}
-              handleCardPlay={this.handleCardPlay}
-            />
+
+          <div className="main-container grid">
+            <div className="grid-8">
+              <CardsContainer
+                tracks={this.state.tracks}
+                handleCardPlay={this.handlePlay}
+              />
+            </div>
+
+            <div className="grid-4">
+              <NowPlaying>
+                <Visualization
+                  visualize={this.visualize}
+                  audioData={[this.state.audioData]}
+                />
+                <SongPlayer track = {this.state.currentTrack} />
+              </NowPlaying>
+              <SongQueueContainer />
+              <SavedSongContainer />
+            </div>
           </div>
       </div>
     );
