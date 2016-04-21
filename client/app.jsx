@@ -6,15 +6,7 @@ import AppBar from 'react-toolbox/lib/app_bar';
 import Navigation from 'react-toolbox/lib/navigation';
 import Visualization from './visualization.jsx';
 import queryAll from './queryAll.js';
-import sampleDOMElement from './visualizer.js';
-
-var addPlayListener = function() {
-  var media = document.getElementById('player');
-  media.addEventListener('play', function(e)
-  {
-    sampleDOMElement('player');
-  }, false);
-};
+import SampleDOMElement from './visualizer.js';
 
 class App extends React.Component {
   constructor(props) {
@@ -46,7 +38,7 @@ class App extends React.Component {
         });
       })
       .then(() =>
-        new sampleDOMElement('player'));
+        new SampleDOMElement('player'));
   }
 
   handleCardPlay(track) {
@@ -95,7 +87,9 @@ class App extends React.Component {
             />
           </AppBar>
           <div className="main-container">
-            <Visualization />
+            <Visualization
+              audioData={[133, 100, 30, 99, 153, 170, 249, 253, 75, 116, 109, 203]}
+            />
             <CardsContainer
               tracks={this.state.tracks}
               handleCardPlay={this.handleCardPlay}

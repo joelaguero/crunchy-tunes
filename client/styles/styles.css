@@ -4,7 +4,7 @@ body {
 }
 
 .visualization {
-  background-color: red;
+  background-color: white;
 }
 
 .main-container {
@@ -27,7 +27,9 @@ body {
   position: fixed;
   width: 100%;
 }
-
+.style__card___1QRTe {
+  width: 20% !important;
+}
 .style__circular___2yZZn {
   padding-top: 40px !important;
 }
