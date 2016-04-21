@@ -106,7 +106,7 @@ class App extends React.Component {
             />
           </AppBar>
           <div className="main-container">
-            <Visualization visualize={this.visualize} audioData={this.state.audioData} />
+            <Visualization visualize={this.visualize} audioData={[this.state.audioData]} />
             <CardsContainer
               tracks={this.state.tracks}
               handleCardPlay={this.handleCardPlay}

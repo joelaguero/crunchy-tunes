@@ -15,17 +15,16 @@ const sampleDOMElement = function sampleDOMElement(DOMElementID) {
   this.analyser.connect(audioCtx.destination);
 };
 
-sampleDOMElement.prototype.sampleAudioStream = function(analyser, streamData, callback) {
-    analyser.getByteFrequencyData(streamData);
-    // calculate an overall volume value
-    var volume = 0;
+sampleDOMElement.prototype.sampleAudioStream = function(analyser, strData, callback) {
+    analyser.getByteFrequencyData(strData);
+    let volume = 0;
     for (var i = 0; i < strData.length; i++) {
       // $('#band-' + i).css('height', streamData[i] / 256 * 100 + 'px');
       // $('#band-' + i).css('background-color', 'hsl('+ (325 - (streamData[i] / (256) * 360)) % 360+', 100%, 50%)');
       volume += strData[i];
     }
     if (callback) {
-      callback(streamData);
+      callback(strData);
     }
     // console.log(volume);
     return volume;
