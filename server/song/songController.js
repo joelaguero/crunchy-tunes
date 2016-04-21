@@ -14,7 +14,7 @@ module.exports = {
       .spread(function(song) {
         foundUser.addSong(song)
         .then(function() {
-          res.JSON(addedSong);
+          res.jsons(addedSong);
         });
       })
     })
@@ -22,6 +22,16 @@ module.exports = {
 
   getAllSaved: function(req, res) {
     var user = req.body.user;
+
+    User.findOne({
+      where: user,
+    })
+    .then(function(foundUser) {
+      return foundUser.getSongs();
+    })
+    .then(function(foundSongs) {
+      res.json(foundSongs);
+    })
   },
 
   deleteOne: function(req, res) {
