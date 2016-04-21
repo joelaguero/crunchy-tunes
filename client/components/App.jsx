@@ -3,12 +3,10 @@ import AppBar from 'react-toolbox/lib/app_bar';
 import Navigation from 'react-toolbox/lib/navigation';
 
 import Nav from './Nav.js';
-import SongPlayer from './SongPlayer.jsx';
 import NowPlaying from './NowPlaying.jsx';
 import SongQueueContainer from './SongQueueContainer.jsx';
 import SavedSongContainer from './SavedSongContainer.jsx';
 import CardsContainer from './CardsContainer.jsx';
-import Visualization from './Visualization.jsx';
 
 import queryAll from '../utils/queryAll.js';
 import SampleDOMElement from '../utils/visualizer.js';
@@ -122,13 +120,7 @@ class App extends React.Component {
 
             <div className="col-4-12">
               <div className="fixed">
-                <NowPlaying>
-                  <Visualization
-                    visualize={this.visualize}
-                    audioData={[this.state.audioData]}
-                    />
-                  <SongPlayer track = {this.state.currentTrack} />
-                </NowPlaying>
+                <NowPlaying/>
                 <SongQueueContainer />
                 <SavedSongContainer />
               </div>
