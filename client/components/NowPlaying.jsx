@@ -5,9 +5,9 @@ import SongPlayer from './SongPlayer.jsx';
 const NowPlaying = (props) => (
   <div>
     <Visualization
-      audioData={[props.audioData]}
+      audioData={props.audioData}
     />
-    <SongPlayer track = {props.currentTrack} />
+    <SongPlayer track={props.currentTrack} />
   </div>
 );
 

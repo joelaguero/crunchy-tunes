@@ -3,8 +3,19 @@ body {
   padding: 0;
 }
 
+div {
+  border: 1px solid red !important;
+}
+
 .visualization {
   background-color: white;
+  width: 100%;
+  min-height: 300px;
+}
+
+.visualization-canvas {
+  height: 100%;
+  min-height: 300px;
 }
 
 .main-container {
@@ -39,5 +50,5 @@ body {
 }
 
 .fixed {
-  position: fixed;
+
 }

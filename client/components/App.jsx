@@ -119,11 +119,13 @@ class App extends React.Component {
             </div>
 
             <div className="col-4-12">
-              <div className="fixed">
-                <NowPlaying/>
-                <SongQueueContainer />
-                <SavedSongContainer />
-              </div>
+                <div className="fixed">
+                  <NowPlaying audioData={[this.state.audioData]}
+                    currentTrack={this.state.currentTrack}
+                  />
+                  <SongQueueContainer />
+                  <SavedSongContainer />
+                </div>
             </div>
           </div>
       </div>

@@ -10,7 +10,7 @@ class Visualization extends React.Component {
     const el = this.refs.DOMnode;
     d3Visual.create(el, {
       width: '100%',
-      height: '500px',
+      height: '100%',
     }, this.getVisualState());
   }
 
@@ -27,7 +27,8 @@ class Visualization extends React.Component {
 
   render() {
     return (
-      <div ref="DOMnode" className="visualization">{this.props.audioData}</div>);
+        <div ref="DOMnode" className="visualization"></div>
+    );
   }
 }
 
