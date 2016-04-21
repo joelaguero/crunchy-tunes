@@ -2,6 +2,7 @@ var express = require('express');
 var path = require('path');
 var bodyParser = require('body-parser');
 var request = require('request'); // "Request" library for Spotify Stuff
+var passport = require(__dirname + '/auth.js');
 
 //connects the database
 require(__dirname + '/db/index.js')();
@@ -16,6 +17,8 @@ app.use(express.static(__dirname + '/../client'));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use(passport.initialize());
 
 router(app, express);
 
