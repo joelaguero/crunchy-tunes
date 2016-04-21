@@ -32,3 +32,6 @@ bower_components/
 
 #OSX Metadata
 *.DS_Store
+
+# API Keys
+server/config/
