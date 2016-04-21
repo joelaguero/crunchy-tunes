@@ -23,6 +23,7 @@ class App extends React.Component {
         apiSource: 'test',
       },
       searching: false,
+      audioData: new Uint8Array(100),
     };
     this.handleSearch = this.handleSearch.bind(this);
     this.handleCardPlay = this.handleCardPlay.bind(this);
@@ -37,8 +38,18 @@ class App extends React.Component {
           tracks: results,
         });
       })
-      .then(() =>
-        new SampleDOMElement('player'));
+      .then(() => {
+        const playerSampler = new SampleDOMElement('player');
+        setInterval(function() {
+          playerSampler.sampleAudioStream(playerSampler.analyser, self.state.audioData,
+            function(data) {
+              self.setState({
+                audioData: data,
+              });
+            });
+        }, 10);
+      })
+      .then(); // initialize d3
   }
 
   handleCardPlay(track) {
@@ -87,9 +98,7 @@ class App extends React.Component {
             />
           </AppBar>
           <div className="main-container">
-            <Visualization
-              audioData={[133, 100, 30, 99, 153, 170, 249, 253, 75, 116, 109, 203]}
-            />
+            <Visualization visualize={this.visualize} audioData={[this.state.audioData]} />
             <CardsContainer
               tracks={this.state.tracks}
               handleCardPlay={this.handleCardPlay}
