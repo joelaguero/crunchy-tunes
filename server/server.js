@@ -3,6 +3,9 @@ var path = require('path');
 var bodyParser = require('body-parser');
 var request = require('request'); // "Request" library for Spotify Stuff
 
+//connects the database
+require(__dirname + '/db/index.js')();
+
 var app = express();
 
 var port = process.env.PORT || 8080;
