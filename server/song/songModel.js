@@ -15,7 +15,7 @@ const Song = db.define('Song',
     imagePath: {
       type: Sequelize.STRING,
       filed: 'image_path',
-    }
+    },
     creator: {
       type: Sequelize.STRING,
     },
