@@ -85,7 +85,7 @@ class App extends React.Component {
               type="horizontal"
               style= { { width: '700px' }}
               actions={[{
-                label: 'Crunchy Tunes',
+                label: 'New Name',
                 raised: true,
                 accent: true,
                 icon: 'audiotrack',

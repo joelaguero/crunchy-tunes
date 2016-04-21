@@ -19,7 +19,7 @@ d3Visual.create = function create(el, props, audioData) {
 
   circles
     .style('fill', () => (`#${Math.floor(Math.random() * 16777215).toString(16)}`))
-    .style('opacity', '.1');
+    .style('opacity', '.05');
 };
 
 d3Visual.update = function update(el, audioData) {
@@ -36,9 +36,7 @@ d3Visual.update = function update(el, audioData) {
   circles
     .attr('r', (d) => (d * 0.75))
     .style('fill', () => (`#${Math.floor(Math.random() * 16777215).toString(16)}`))
-    .style('opacity', '.1');
-
-  console.log(audioData[0]);
+    .style('opacity', '.05');
 
   circles
     .exit()
