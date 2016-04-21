@@ -52,10 +52,6 @@ class App extends React.Component {
       .then(); // initialize d3
   }
 
-  visualize(data) {
-    console.log(data);
-  }
-
   handleCardPlay(track) {
     this.setState({
       currentTrack: track,
@@ -79,10 +75,6 @@ class App extends React.Component {
           searching: false,
         });
       });
-  }
-
-  handleAudioData(dataArray) {
-    this.setState()
   }
 
   render() {
