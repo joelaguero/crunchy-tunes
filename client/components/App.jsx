@@ -28,10 +28,17 @@ class App extends React.Component {
       searching: false,
       audioData: new Uint8Array(100),
       savedSongs: [
+        {
+          songTitle: 'TITLE-SAVED',
+          creator: 'CREATOR-SAVED',
+        }
 
       ],
       queuedSongs: [
-
+        {
+          songTitle: 'TITLE-QUEUED',
+          creator: 'CREATOR-QUEUED',
+        }
       ],
     };
     this.handleSearch = this.handleSearch.bind(this);
@@ -61,8 +68,7 @@ class App extends React.Component {
               });
             });
         }, 10);
-      })
-      .then(); // initialize d3
+      });
   }
 
   handlePlay(track) {
@@ -115,6 +121,8 @@ class App extends React.Component {
               <CardsContainer
                 tracks={this.state.tracks}
                 handleCardPlay={this.handlePlay}
+                handleAddToQueue={this.handleAddToQueue}
+                handleAddToSaved={this.handleAddToSaved}
               />
             </div>
 
@@ -123,8 +131,18 @@ class App extends React.Component {
                   <NowPlaying audioData={[this.state.audioData]}
                     currentTrack={this.state.currentTrack}
                   />
-                  <SongQueueContainer />
-                  <SavedSongContainer />
+                  <SongQueueContainer
+                    queuedSongs={this.state.queuedSongs}
+                    handlePlay={this.handlePlay}
+                    handleAddToSaved={this.handleAddToSaved}
+                    handleRemoveFromQueue={this.handleRemoveFromQueue}
+                  />
+                  <SavedSongContainer
+                    savedSongs={this.state.savedSongs}
+                    handlePlay={this.handlePlay}
+                    handleAddToQueue={this.handleAddToQueue}
+                    handleRemoveFromSaved={this.handleRemoveFromSaved}
+                  />
                 </div>
             </div>
           </div>

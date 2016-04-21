@@ -26,11 +26,5 @@ app.listen(port, function(err) {
   if(err) {
     return console.log(err);
   }
-  console.log('Crunchy Tunes Server listenting on port: ' + port);
+  console.log('Crunchy Tunes Server listening on port: ' + port);
 });
-
-
-
-
-
-
