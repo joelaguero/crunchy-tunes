@@ -1,6 +1,7 @@
 body {
   margin: 0;
   padding: 0;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
 }
 
 .visualization {
@@ -34,17 +35,33 @@ body {
   position: fixed;
   width: 100%;
 }
+
 .style__card___1QRTe {
   width: 25% !important;
-}
-.style__circular___2yZZn {
-  padding-top: 40px !important;
+
+.appBar .navBar a {
+  color: white;
 }
 
-.style__root___2LQf5 {
-  background-color: white !important;
+.cardsContainer > [data-react-toolbox="card"] {
+  width: 20%;
+}
+
+#app div > [data-react-toolbox="app-bar"] {
+  background-color: white;
+}
+
+.appBar .navBar .search-bar > [data-react-toolbox="progress-bar"] {
+  padding-top: 40px;
+}
+
+.appBar .navBar > [data-react-toolbox="button"] {
+  background-color: #ff4081;
 }
 
 .fixed {
 
 }
+/*.style__circular___2yZZn {
+  padding-top: 40px !important;
+}*/
