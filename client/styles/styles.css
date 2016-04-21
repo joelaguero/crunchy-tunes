@@ -28,7 +28,7 @@ body {
   width: 100%;
 }
 .style__card___1QRTe {
-  width: 20% !important;
+  width: 25% !important;
 }
 .style__circular___2yZZn {
   padding-top: 40px !important;
@@ -36,4 +36,8 @@ body {
 
 .style__root___2LQf5 {
   background-color: white !important;
+}
+
+.fixed {
+  position: fixed;
 }

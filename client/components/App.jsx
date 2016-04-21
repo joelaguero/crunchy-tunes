@@ -113,23 +113,25 @@ class App extends React.Component {
           </AppBar>
 
           <div className="main-container grid">
-            <div className="grid-8">
+            <div className="col-8-12">
               <CardsContainer
                 tracks={this.state.tracks}
                 handleCardPlay={this.handlePlay}
               />
             </div>
 
-            <div className="grid-4">
-              <NowPlaying>
-                <Visualization
-                  visualize={this.visualize}
-                  audioData={[this.state.audioData]}
-                />
-                <SongPlayer track = {this.state.currentTrack} />
-              </NowPlaying>
-              <SongQueueContainer />
-              <SavedSongContainer />
+            <div className="col-4-12">
+              <div className="fixed">
+                <NowPlaying>
+                  <Visualization
+                    visualize={this.visualize}
+                    audioData={[this.state.audioData]}
+                    />
+                  <SongPlayer track = {this.state.currentTrack} />
+                </NowPlaying>
+                <SongQueueContainer />
+                <SavedSongContainer />
+              </div>
             </div>
           </div>
       </div>
