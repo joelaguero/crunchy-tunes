@@ -3,10 +3,6 @@ body {
   padding: 0;
 }
 
-div {
-  border: 1px solid red !important;
-}
-
 .visualization {
   background-color: white;
   width: 100%;
