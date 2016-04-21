@@ -13,23 +13,22 @@ const sampleDOMElement = function sampleDOMElement(DOMElementID) {
   this.analyser.fftSize = 256;
   this.source.connect(this.analyser);
   this.analyser.connect(audioCtx.destination);
-  const context = this;
-  setInterval(() => (context.sampleAudioStream(context.analyser, streamData)), 10);
 };
 
-sampleDOMElement.prototype.sampleAudioStream = function sampleAudioStream(analyser, strData) {
-  analyser.getByteFrequencyData(strData);
-  // calculate an overall volume value
-  let volume = 0;
-  for (let i = 0; i < strData.length; i++) {
-    // $('#band-' + i).css('height', strData[i] / 256 * 100 + 'px');
-    // $('#band-' + i)
-    //   .css('background-color', 'hsl('+ (325 - (strData[i] / (256) * 360)) % 360+', 100%, 50%)');
-    volume += strData[i];
-  }
-  // console.log(strData);
-  // console.log(volume);
-  return volume;
+sampleDOMElement.prototype.sampleAudioStream = function(analyser, streamData, callback) {
+    analyser.getByteFrequencyData(streamData);
+    // calculate an overall volume value
+    var volume = 0;
+    for (var i = 0; i < strData.length; i++) {
+      // $('#band-' + i).css('height', streamData[i] / 256 * 100 + 'px');
+      // $('#band-' + i).css('background-color', 'hsl('+ (325 - (streamData[i] / (256) * 360)) % 360+', 100%, 50%)');
+      volume += strData[i];
+    }
+    if (callback) {
+      callback(streamData);
+    }
+    // console.log(volume);
+    return volume;
 };
 
 export default sampleDOMElement;
