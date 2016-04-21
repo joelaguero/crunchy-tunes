@@ -6,13 +6,23 @@ import d3Visual from './d3Visual';
 // designed to be stateless, meaning it doesn't hold on to any state-related data that
 // gets passed to it.
 class Visualization extends React.Component {
-
   componentDidMount() {
     const el = this.refs.DOMnode;
     d3Visual.create(el, {
       width: '100%',
       height: '500px',
-    }, this.props.audioData);
+    }, this.getVisualState());
+  }
+
+  componentDidUpdate() {
+    const el = this.refs.DOMnode;
+    d3Visual.update(el, this.getVisualState());
+  }
+
+  // helper function for getting the visual state
+  // this allows us to extend it later with different information beyond audioData
+  getVisualState() {
+    return this.props.audioData;
   }
 
   render() {

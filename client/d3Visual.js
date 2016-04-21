@@ -9,16 +9,38 @@ d3Visual.create = function create(el, props, audioData) {
     .attr('height', props.height);
 
   const circles = svg.selectAll('circle')
-    .data(audioData)
+    .data(audioData[0])
     .enter()
     .append('circle')
-    .attr('r', (d) => (d / 2))
-    .attr('cx', (d) => (d))
-    .attr('cy', (d) => (d));
+    .attr('r', (d) => (d * 0.75))
+    .attr('cx', '50%')
+    .attr('cy', '250px')
+    .attr('class', 'circle');
 
   circles
     .style('fill', () => (`#${Math.floor(Math.random() * 16777215).toString(16)}`))
-    .style('opacity', '.5');
+    .style('opacity', '.05');
+};
+
+d3Visual.update = function update(el, audioData) {
+  const svg = d3.select(el).select('svg');
+
+  const circles = svg.selectAll('.circle')
+    .data(audioData[0]);
+
+  circles
+    .enter()
+    .append('circle')
+    .attr('class', 'circle');
+
+  circles
+    .attr('r', (d) => (d * 0.75))
+    .style('fill', () => (`#${Math.floor(Math.random() * 16777215).toString(16)}`))
+    .style('opacity', '.05');
+
+  circles
+    .exit()
+    .remove();
 };
 
 export default d3Visual;
