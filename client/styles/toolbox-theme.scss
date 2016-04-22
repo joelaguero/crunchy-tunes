@@ -24,15 +24,18 @@ $card-font-size: $font-size-small !default;
 .card {
   position: relative;
   cursor: pointer;
+  width: 30%;
+  margin: 5px;
 }
 
 .card-title {
-  font-size: $font-size-small;
+  font-size: $font-size-tiny;
   font-family: $preferred-font;
   font-weight: 300;
-  padding-left: 15px;
-  padding-right: 15px;
-  padding-top: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
   position: relative;
   color: #666666;
 }
@@ -40,7 +43,7 @@ $card-font-size: $font-size-small !default;
 .source-logo {
   position: absolute;
   top: 0px;
-  right: 0px;
+  left: 0px;
   z-index: 2;
   filter: grayscale(50%);
   transition: filter 0.8s;

@@ -1,5 +1,5 @@
 import React from 'react';
-import SongQueueEntry from './SongQueueEntry.jsx'
+import SongQueueEntry from './SongQueueEntry.jsx';
 
 const SongQueueContainer = (props) => (
   <div>
