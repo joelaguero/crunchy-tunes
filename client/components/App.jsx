@@ -144,7 +144,16 @@ class App extends React.Component {
   }
 
   handleRemoveFromQueue(song) {
-
+    let songs = this.state.queuedSongs;
+    let newQueue = []
+    for (var i = 0; i < songs.length; i++) {
+      if (song.contentId !== songs[i].contentId) {
+        newQueue.push(songs[i]);
+      }
+    }
+    this.setState({
+      queuedSongs: newQueue
+    })
   }
 
   handleRemoveFromSaved(song) {
