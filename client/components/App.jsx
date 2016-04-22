@@ -17,7 +17,7 @@ class App extends React.Component {
   constructor(props) {
     
     super(props);
-    console.log('initial state after constructor', window.__INITIAL_STATE__);
+    console.log('initial state after constructor', typeof window.__INITIAL_STATE__, window.__INITIAL_STATE__);
 
     this.state = {
       user: '',
