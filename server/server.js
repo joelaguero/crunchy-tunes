@@ -3,6 +3,7 @@ var path = require('path');
 var bodyParser = require('body-parser');
 var request = require('request'); // "Request" library for Spotify Stuff
 var passport = require(__dirname + '/auth.js').passport;
+var session = require('express-session');
 var morgan = require('morgan');
 
 //connects the database
@@ -14,9 +15,14 @@ var port = process.env.PORT || 8080;
 
 var router = require(__dirname + '/routes');
 
-app.use(morgan('dev'));
+app.use(morgan('dev')); // dev use only
 
 app.use(express.static(__dirname + '/../client'));
+
+app.use(session({
+  secret: 'reinaishere',
+  cookie: { maxAge: 60000 },
+}));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
