@@ -3,10 +3,10 @@ var Song = require(__dirname + '/songModel.js');
 
 module.exports = {
   saveOne: function(req, res) {
-    var user = req.body.user;
+    var user = req.user;
     var song = req.body.song;
 
-    if (!user || !song) { res.send(404); }
+    if (!user) { return res.sendStatus(404); }
 
     User.findOne({
       where: user
@@ -26,9 +26,9 @@ module.exports = {
   },
 
   getAllSaved: function(req, res) {
-    var user = req.body.user;
+    var user = req.user;
 
-    if (!user) { res.send(404); }
+    if (!user) { return res.sendStatus(404); }
 
     User.findOne({
       where: user,
@@ -45,10 +45,10 @@ module.exports = {
   },
 
   deleteOne: function(req, res) {
-    var user = req.body.user;
+    var user = req.user;
     var song = req.body.song;
 
-    if (!user || !song) { res.send(404); }
+    if (!user) { return res.sendStatus(404); }
 
     Song.findOne({
       where: song,
