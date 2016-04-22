@@ -6,8 +6,8 @@ const CardsContainer = ({ tracks, handlePlay }) => {
       key={track.contentId}
     >
       <div>
-        <div
-          avatar={(() => {
+        <img
+          src={(() => {
             switch (track.apiSource) {
               case 'Spotify': return 'http://www.iconarchive.com/download/i98446/dakirby309/simply-styled/Spotify.ico';
               case 'SoundCloud': return 'https://c1.staticflickr.com/9/8082/8292777643_65090144e9.jpg';
@@ -15,6 +15,8 @@ const CardsContainer = ({ tracks, handlePlay }) => {
               default: return '';
             }
           })()}
+          role="presentation"
+          className="source-icon"
         />
       <img className="card-thumbnail" src={track.imagePath} role="presentation" />
       </div>
