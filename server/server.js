@@ -2,7 +2,8 @@ var express = require('express');
 var path = require('path');
 var bodyParser = require('body-parser');
 var request = require('request'); // "Request" library for Spotify Stuff
-var passport = require(__dirname + '/auth.js');
+var passport = require(__dirname + '/auth.js').passport;
+var morgan = require('morgan');
 
 //connects the database
 require(__dirname + '/db/index.js')();
@@ -12,6 +13,8 @@ var app = express();
 var port = process.env.PORT || 8080;
 
 var router = require(__dirname + '/routes');
+
+app.use(morgan('dev'));
 
 app.use(express.static(__dirname + '/../client'));
 
