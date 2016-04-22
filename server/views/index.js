@@ -1,4 +1,4 @@
-module.exports = function renderFullPage(html, initialState) {
+module.exports = function renderFullPage(initialState) {
   return `
   <!DOCTYPE html>
   <html>
@@ -12,13 +12,12 @@ module.exports = function renderFullPage(html, initialState) {
       <link href='https://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
     </head>
     <body>
-      <div id="app">${html}</div>
-      <script src="./dist/bundle.js" async></script>
-      <script src="https://connect.soundcloud.com/sdk/sdk-3.0.0.js"></script>
+      <div id="app"></div>
       <script>
-        console.log('Initial State: ', initialState);
         window.__INITIAL_STATE__ = ${JSON.stringify(initialState)};
       </script>
+      <script src="https://connect.soundcloud.com/sdk/sdk-3.0.0.js"></script>
+      <script src="./dist/bundle.js" async></script>
     </body>
   </html>
   `

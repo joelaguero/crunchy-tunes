@@ -1,6 +1,6 @@
-var React = require('react');
-var renderToString = require('react-dom/server').renderToString;
-var App = require('../client/components/App.jsx');
+// var React = require('react');
+// var renderToString = require('react-dom/server').renderToString;
+// var App = require('../client/components/App.jsx');
 var renderFullPage = require('./views/index.js');
 var User = require(__dirname + '/user/userModel.js');
 
@@ -8,7 +8,6 @@ module.exports = function renderIndex(req, res) {
   var user = {};
 
   var sendInitialState = function() {
-    var html = renderToString(<App/>);
     var initialState = {
       user: user,
       savedSongs: [{
@@ -17,10 +16,11 @@ module.exports = function renderIndex(req, res) {
         creator: 'Cindy Huynh',
         songTitle: 'Crazy In Love (Fifty Shades Of Grey) - Sofia Karlberg (Beyoncé Cover)',
         apiSource: 'SoundCloud',
-      },],
+      }]
     };
+
     console.log(initialState);
-    res.send(renderFullPage(html, initialState))
+    res.send(renderFullPage(initialState));
   };
 
   if (req.session.passport && req.user) {

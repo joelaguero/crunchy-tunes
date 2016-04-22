@@ -7,7 +7,7 @@ var renderIndex = require(__dirname + '/indexHandler.js');
 
 module.exports = function(app, express) {
   app.use(express.static(__dirname + '/../client'));
-  app.get('/fish', renderIndex);
+  app.get('/', renderIndex);
 
   app.post('/api/spotifyAudioFeatures', controller.spotifyAudioFeatures);
 

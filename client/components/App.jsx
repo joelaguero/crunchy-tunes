@@ -13,13 +13,11 @@ import SampleDOMElement from '../utils/visualizer.js';
 import getAudioFeatures from '../utils/requestAudioFeatures.js';
 
 
-// polyfill();
-
 class App extends React.Component {
   constructor(props) {
+    
     super(props);
-
-    const initialState = window.__INITIAL_STATE__;
+    console.log('initial state after constructor', window.__INITIAL_STATE__);
 
     this.state = {
       user: '',
@@ -54,8 +52,8 @@ class App extends React.Component {
   }
 
   componentDidMount() {
+    const initialState = window.__INITIAL_STATE__;
     const self = this;
-    console.log(window);
     queryAll({ query: 'Beyonce',
       })
       .then((results) => {
