@@ -1,3 +1,5 @@
+import request from 'then-request';
+
 import React from 'react';
 import AppBar from 'react-toolbox/lib/app_bar';
 import Navigation from 'react-toolbox/lib/navigation';
@@ -12,6 +14,8 @@ import queryAll from '../utils/queryAll.js';
 import SampleDOMElement from '../utils/visualizer.js';
 import getAudioFeatures from '../utils/requestAudioFeatures.js';
 
+
+// polyfill();
 
 class App extends React.Component {
   constructor(props) {
@@ -119,6 +123,24 @@ class App extends React.Component {
           searching: false,
         });
       });
+  }
+
+  handleAddToQueue(song) {
+    this.setState({
+      queuedSongs: this.state.queuedSongs.concat([song]),
+    });
+  }
+
+  handleAddToSaved(song) {
+    request('POST', '/api/songs/saved', {
+      body: song
+    })
+    .then(function(data) {
+      let song = JSON.parse(data);
+      this.setState({
+        savedSongs: this.state.savedSongs.concat([song]),
+      });
+    });
   }
 
   render() {
