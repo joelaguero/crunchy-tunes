@@ -56,6 +56,7 @@
     "sequelize": "^3.21.0",
     "soundcloud": "^3.1.0",
     "style-loader": "^0.13.1",
+    "then-request": "^2.2.0",
     "toolbox-loader": "0.0.3",
     "underscore": "^1.8.3",
     "webpack": "^1.12.14"
