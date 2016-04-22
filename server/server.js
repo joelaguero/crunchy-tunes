@@ -17,8 +17,6 @@ var router = require(__dirname + '/routes');
 
 app.use(morgan('dev')); // dev use only
 
-app.use(express.static(__dirname + '/../client'));
-
 app.use(session({
   secret: 'reinaishere'
 }));
