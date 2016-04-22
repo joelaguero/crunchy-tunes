@@ -38,7 +38,10 @@ passport.use(new GoogleStrategy({
 module.exports = {
   passport: passport,
   checkAuth: function(req, res, next) {
-    if (req.user) { return next(); }
+    if (req.user) {
+      console.log('User is...', req.user);
+      return next();
+    }
     res.redirect('/');
   },
 };

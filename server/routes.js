@@ -18,13 +18,11 @@ module.exports = function(app, express) {
   app.get('/auth/google/callback',
     passport.authenticate('google'),
     function(req, res) {
-      console.log('session user after log in', req.user);
       res.redirect('/');
     });
 
   app.get('/logout', function(req, res) {
     req.logout();
-    console.log('session user after log out:', req.user);
     res.redirect('/');
   });
 };
