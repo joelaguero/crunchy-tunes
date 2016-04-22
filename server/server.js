@@ -19,7 +19,9 @@ app.use(morgan('dev')); // dev use only
 
 app.use(express.static(__dirname + '/../client'));
 
-app.use(session());
+app.use(session({
+  secret: 'reinaishere'
+}));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

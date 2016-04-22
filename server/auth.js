@@ -7,11 +7,23 @@ module.exports = {};
 
 module.exports.checkAuth = function checkAuth(req, res, next) {
   if (req.user) {
-    console.log('User is...', req.user);
+    // trim the user object to make it consumable for the database
+    var user = {
+      googleUserId: req.user.id,
+      firstName: req.user.name.givenName,
+      lastName: req.user.name.familyName,
+    }
+    req.user = user;
     return next();
+    console.log('ERROR after return...');
   }
   res.redirect('/');
 };
+
+module.exports.authenticateGoogleLogin = passport.authenticate('google', {
+  failureRedirect: '/'
+});
+
 /*
 serializeUser and deserializeUser are two required Passport methods that are
 called when using sessions with Passport.
