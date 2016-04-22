@@ -13,36 +13,20 @@ import SampleDOMElement from '../utils/visualizer.js';
 import getAudioFeatures from '../utils/requestAudioFeatures.js';
 
 
-// polyfill();
-
 class App extends React.Component {
   constructor(props) {
+    
     super(props);
+    console.log('initial state after constructor', typeof window.__INITIAL_STATE__, window.__INITIAL_STATE__);
+
     this.state = {
-      tracks: [
-        {
-          artist: 'Yeezy',
-          apiSource: 'test',
-        },
-      ],
-      currentTrack: {
-        artist: 'Yeezy',
-        apiSource: 'test',
-      },
+      user: '',
+      savedSongs: [],
+      tracks: [],
+      currentTrack: {},
       searching: false,
       audioData: new Uint8Array(100),
-      savedSongs: [
-        {
-          imagePath: 'https://i1.sndcdn.com/artworks-000090789132-5e3qzf-large.jpg',
-          contentId: 167370242,
-          creator: 'Cindy Huynh',
-          songTitle: 'Crazy In Love (Fifty Shades Of Grey) - Sofia Karlberg (Beyoncé Cover)',
-          apiSource: 'SoundCloud',
-        },
-      ],
-      queuedSongs: [
-
-      ],
+      queuedSongs: [],
       songFeatures: {
         acousticness: 0.5,
         danceability: 0.5,
@@ -68,6 +52,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
+    const initialState = window.__INITIAL_STATE__;
     const self = this;
     queryAll({ query: 'Beyonce',
       })

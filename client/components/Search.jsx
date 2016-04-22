@@ -1,7 +1,5 @@
 import React from 'react';
-import Input from 'react-toolbox/lib/input';
 import _ from 'underscore';
-import ProgressBar from 'react-toolbox/lib/progress_bar';
 
 class Search extends React.Component {
   constructor(props) {
@@ -14,29 +12,23 @@ class Search extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange(e) {
+  handleChange() {
     this.setState({
-      searchText: e,
+      searchText: this.refs.searchField.value,
     });
-    this.debouncedSearch(e);
+    this.debouncedSearch(this.refs.searchField.value);
   }
 
   render() {
     return (
     <span className="search-bar form-inline" style={{ display: 'inline-flex' }}>
-      <Input type="text"
-        style={{ width: '500px' }}
-        label="Search SoundCloud for some Crunchy Tunes!"
+      <input type="text"
+        ref="searchField"
+        placeholder="Search for music"
         onChange={this.handleChange}
         value ={this.state.searchText}
       />
-      { this.props.searching ?
-          <ProgressBar
-            type="circular"
-            mode="indeterminate"
-            multicolor
-          />
-      : null}
+
     </span>
     );
   }
