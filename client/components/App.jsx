@@ -79,8 +79,6 @@ class App extends React.Component {
         this.setState({
           songFeatures: results,
         });
-        console.log('Audio Features came back to handleCardPlay', results);
-        console.log('track', track);
       });
     this.setState({
       currentTrack: track,
