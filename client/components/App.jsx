@@ -64,10 +64,10 @@ class App extends React.Component {
     };
     this.handleSearch = this.handleSearch.bind(this);
     this.handlePlay = this.handlePlay.bind(this);
-    // this.handleAddToQueue = this.handleAddToQueue.bind(this);
-    // this.handleAddToSaved = this.handleAddToSaved.bind(this);
-    // this.handleRemoveFromQueue = this.handleRemoveFromQueue.bind(this);
-    // this.handleRemoveFromSaved = this.handleRemoveFromSaved.bind(this);
+    this.handleAddToQueue = this.handleAddToQueue.bind(this);
+    this.handleAddToSaved = this.handleAddToSaved.bind(this);
+    this.handleRemoveFromQueue = this.handleRemoveFromQueue.bind(this);
+    this.handleRemoveFromSaved = this.handleRemoveFromSaved.bind(this);
   }
 
   componentDidMount() {
@@ -143,6 +143,14 @@ class App extends React.Component {
     });
   }
 
+  handleRemoveFromQueue(song) {
+
+  }
+
+  handleRemoveFromSaved(song) {
+
+  }
+
   render() {
     return (
       <div>
@@ -167,7 +175,7 @@ class App extends React.Component {
             <div className="col-8-12">
               <CardsContainer
                 tracks={this.state.tracks}
-                handleCardPlay={this.handlePlay}
+                handlePlay={this.handlePlay}
                 handleAddToQueue={this.handleAddToQueue}
                 handleAddToSaved={this.handleAddToSaved}
               />
