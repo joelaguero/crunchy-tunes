@@ -3,7 +3,7 @@ import SongQueueEntry from './SongQueueEntry.jsx'
 
 const SongQueueContainer = (props) => (
   <div>
-    <h3>Next up</h3>
+    <h3>NEXT UP</h3>
     {props.queuedSongs.map(song =>
         <SongQueueEntry
           handlePlay={props.handlePlay}

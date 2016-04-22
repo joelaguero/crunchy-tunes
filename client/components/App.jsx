@@ -15,13 +15,12 @@ import getAudioFeatures from '../utils/requestAudioFeatures.js';
 
 class App extends React.Component {
   constructor(props) {
-    
     super(props);
-    console.log('initial state after constructor', typeof window.__INITIAL_STATE__, window.__INITIAL_STATE__);
+    const initialState = window.__INITIAL_STATE__;
 
     this.state = {
-      user: '',
-      savedSongs: [],
+      user: initialState.user || '',
+      savedSongs: initialState.savedSongs || [],
       tracks: [],
       currentTrack: {},
       searching: false,
