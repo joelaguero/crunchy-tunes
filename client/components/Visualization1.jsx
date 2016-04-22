@@ -5,7 +5,7 @@ import d3Visual from '../utils/d3Visual';
 // by passing data to a d3 object that handles all d3 rendering. the d3 object is
 // designed to be stateless, meaning it doesn't hold on to any state-related data that
 // gets passed to it.
-class Visualization extends React.Component {
+class Visualization1 extends React.Component {
   componentDidMount() {
     const el = this.refs.DOMnode;
     d3Visual.create(el, {
@@ -32,8 +32,8 @@ class Visualization extends React.Component {
   }
 }
 
-Visualization.propTypes = {
+Visualization1.propTypes = {
   audioData: React.PropTypes.array.isRequired,
 };
 
-export default Visualization;
+export default Visualization1;

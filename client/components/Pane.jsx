@@ -1,3 +1,5 @@
+import React from 'react';
+
 const Pane = React.createClass({
   displayName: 'Pane',
   propTypes: {
@@ -12,3 +14,5 @@ const Pane = React.createClass({
     );
   }
 });
+
+export default Pane;

@@ -1,3 +1,5 @@
+import React from 'react';
+
 const Tabs = React.createClass({
   displayName: 'Tabs',
   propTypes: {
@@ -58,3 +60,5 @@ const Tabs = React.createClass({
     );
   }
 });
+
+export default Tabs;
