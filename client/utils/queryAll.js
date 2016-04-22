@@ -4,8 +4,8 @@ import searchYouTube from './requestYouTubeUtils.js';
 import cardCreator from './songCardCreator.js';
 import remixArray from './remixArray.js';
 
-const queryAll = ({ query }) => (
-  new Promise((resolve, reject) => {
+const queryAll = ({ query }) => {
+  return new Promise((resolve, reject) => {
     const queryEach = [
       // searchSpotify({ query }),
       searchSoundCloud({ query }),
@@ -26,7 +26,7 @@ const queryAll = ({ query }) => (
       .catch((err) => {
         reject(err);
       });
-  })
-);
+  });
+};
 // queryAll({query: 'rihanna'})
 export default queryAll;

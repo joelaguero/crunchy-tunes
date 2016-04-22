@@ -10,6 +10,8 @@ import CardsContainer from './CardsContainer.jsx';
 
 import queryAll from '../utils/queryAll.js';
 import SampleDOMElement from '../utils/visualizer.js';
+import getAudioFeatures from '../utils/requestAudioFeatures.js';
+
 
 class App extends React.Component {
   constructor(props) {
@@ -40,6 +42,21 @@ class App extends React.Component {
           creator: 'CREATOR-QUEUED',
         }
       ],
+      songFeatures: {
+        acousticness: 0.5,
+        danceability: 0.5,
+        energy: 0.5,
+        id: "713jEiNE8oXkHJvqiKlo2Q",
+        instrumentalness: 0.5,
+        key: 2, // see: https://en.wikipedia.org/wiki/Pitch_class
+        liveness: 0.5,
+        loudness: -30,
+        mode: 0, // major is 1, minor is 0
+        speechiness: 0.4, // anything over .6 is talk, not music
+        tempo: 120,
+        time_signature: 4,
+        valence: 0.5 // 1 is positive, 0 is negative
+      },
     };
     this.handleSearch = this.handleSearch.bind(this);
     this.handlePlay = this.handlePlay.bind(this);
@@ -72,6 +89,14 @@ class App extends React.Component {
   }
 
   handlePlay(track) {
+    // console.log('Here\s the artist in handleCardPlay', track.creator, 'here is the track', track.songTitle);
+    getAudioFeatures(track.creator, track.songTitle)
+      .then((results) => {
+        this.setState({
+          songFeatures: results,
+        });
+        console.log('Audio Features came back to handleCardPlay', results);
+      });
     this.setState({
       currentTrack: track,
     });
