@@ -2,6 +2,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  background-color: #fafafa;
 }
 
 .visualization {
@@ -27,20 +28,14 @@ body {
   width: 100%;
 }
 
-.navBar {
-  padding-top: 10px;
-}
-
-.appBar {
+#nav-bar {
+  text-align: center;
   position: fixed;
-  width: 100%;
-}
-
-.style__card___1QRTe {
-  width: 25% !important;
-
-.appBar .navBar a {
-  color: white;
+  min-width: 100%;
+  z-index: 999;
+  padding-top: 10px;
+  border-bottom: 1px solid rgba(0,0,0,0.12);
+  background-color: white;
 }
 
 .cardsContainer > [data-react-toolbox="card"] {
@@ -57,10 +52,6 @@ body {
 
 .appBar .navBar > [data-react-toolbox="button"] {
   background-color: #ff4081;
-}
-
-.fixed {
-
 }
 /*.style__circular___2yZZn {
   padding-top: 40px !important;

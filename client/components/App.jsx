@@ -4,7 +4,7 @@ import React from 'react';
 import AppBar from 'react-toolbox/lib/app_bar';
 import Navigation from 'react-toolbox/lib/navigation';
 
-import Nav from './Nav.js';
+import Nav from './Nav.jsx';
 import NowPlaying from './NowPlaying.jsx';
 import SongQueueContainer from './SongQueueContainer.jsx';
 import SavedSongContainer from './SavedSongContainer.jsx';
@@ -172,23 +172,10 @@ class App extends React.Component {
   render() {
     return (
       <div>
-          <AppBar className="appBar" >
-            <Navigation
-              type="horizontal"
-              style= { { width: '700px' }}
-              actions={[{
-                label: 'New Name',
-                raised: true,
-                accent: true,
-                icon: 'audiotrack',
-              }]}
-            />
-            <Nav
-              handleSearch={this.handleSearch}
-              searching={this.state.searching}
-            />
-          </AppBar>
-
+          <Nav
+            handleSearch={this.handleSearch}
+            searching={this.state.searching}
+          />
           <div className="main-container grid">
             <div className="col-8-12">
               <CardsContainer
