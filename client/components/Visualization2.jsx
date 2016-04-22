@@ -27,7 +27,7 @@ class Visualization2 extends React.Component {
 
   render() {
     return (
-        <div ref="DOMnode" className="visualization"></div>
+        <div ref="DOMnode" className="visualization2"></div>
     );
   }
 }

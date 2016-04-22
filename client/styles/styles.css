@@ -9,7 +9,7 @@ audio {
   width: 100%;
 }
 
-.visualization {
+.visualization, .visualization1, .visualization2 {
   background-color: #FAFAFA;
   width: 100%;
   min-height: 300px;
@@ -130,8 +130,29 @@ img.source-icon {
   background-color: white;
   top: 0px;
 }
-/*
-.appBar .navBar .search-bar > [data-react-toolbox="progress-bar"] {
-  padding-top: 40px;
-  color: black;
-}*/
+
+.tabs {
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 3px;
+}
+.tabs__labels {
+  margin: 0;
+  padding: 0;
+}
+.tabs__labels li {
+  display: inline-block;
+}
+.tabs__labels li a {
+  padding: 8px 12px;
+  display: block;
+  color: #444;
+  text-decoration: none;
+  border-bottom: 2px solid #f5f5f5;
+}
+.tabs__labels li a.active {
+  border-bottom-color: #337ab7;
+}
+.tabs__content {
+  padding: 10px;
+}

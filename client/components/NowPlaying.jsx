@@ -1,10 +1,10 @@
 import React from 'react';
 import Visualization from './Visualization.jsx';
+import Visualization1 from './Visualization1.jsx';
+import Visualization2 from './Visualization2.jsx';
 import SongPlayer from './SongPlayer.jsx';
 import Tabs from './Tabs.jsx';
 import Pane from './Pane.jsx';
-import Visualization1 from './Visualization1.jsx';
-import Visualization2 from './Visualization2.jsx';
 
 const NowPlaying = (props) => (
   <div>
@@ -23,6 +23,7 @@ const NowPlaying = (props) => (
       </Pane>
     </Tabs>
     <SongPlayer track={props.currentTrack} handleAudioEnded={props.handleAudioEnded}/>
+    
   </div>
 );
 
