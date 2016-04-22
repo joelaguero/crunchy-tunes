@@ -18,6 +18,9 @@ module.exports = {
         });
       })
     })
+    .catch(function(error) {
+      throw error;
+    });
   },
 
   getAllSaved: function(req, res) {
@@ -32,11 +35,31 @@ module.exports = {
     .then(function(foundSongs) {
       res.json(foundSongs);
     })
+    .catch(function(error) {
+      throw error;
+    });
   },
 
   deleteOne: function(req, res) {
     var user = req.body.user;
     var song = req.body.song;
 
+    Song.findOne({
+      where: song,
+    })
+    .then(function(foundSong) {
+      User.findOne({
+        where: user,
+      })
+      .then(function(foundUser) {
+        foundUser.removeSong(foundSong);
+      })
+      .then(function() {
+        res.json(foundSong);
+      })
+      .catch(function(error) {
+        throw error;
+      });
+    });
   },
 };

@@ -4,7 +4,6 @@ var songController = require(__dirname + '/song/songController.js');
 var passport = require(__dirname + '/auth.js');
 
 module.exports = function(app, express) {
-
   app.post('/api/spotifyAudioFeatures', controller.spotifyAudioFeatures);
 
   app.get('/api/songs/saved', songController.getAllSaved);
@@ -27,6 +26,4 @@ module.exports = function(app, express) {
     console.log('session user after log out:', req.user);
     res.redirect('/');
   });
-
-
 };
