@@ -18,9 +18,9 @@ const CardsContainer = ({ tracks, handlePlay }) => {
           role="presentation"
           className="source-icon"
         />
-      <img className="card-thumbnail" src={track.imagePath} role="presentation" />
+      <img className="card-thumbnail" src={track.imagePath || 'http://s3.amazonaws.com/spoonflower/public/design_thumbnails/0122/8590/rrrrrrchevron6bars-1800P-30_shop_preview.png'} role="presentation" />
       </div>
-      <div>
+      <div className="card-title">
       {track.songTitle}
       </div>
     </div>

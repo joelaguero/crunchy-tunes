@@ -5,8 +5,12 @@ body {
   background-color: #fafafa;
 }
 
+audio {
+  width: 100%;
+}
+
 .visualization {
-  background-color: white;
+  background-color: #FAFAFA;
   width: 100%;
   min-height: 300px;
 }
@@ -38,11 +42,13 @@ body {
 .card:hover {
   background-color: white;
   border: 1px solid #333333;
+  cursor: pointer;
 }
 
 img.card-thumbnail {
   width: 100%;
   min-height: 100px;
+  border-bottom: 1px solid black;
 }
 
 img.source-icon {
@@ -53,16 +59,21 @@ img.source-icon {
   margin: 10px;
 }
 
+.card-title {
+  padding: 6px;
+}
+
 #nav-bar {
   text-align: center;
   position: fixed;
   min-width: 100%;
   z-index: 999;
   padding-top: 10px;
-  border-bottom: 1px solid rgba(0,0,0,0.12);
+  border-bottom: 1px solid black;
   background-color: white;
 }
 
 .appBar .navBar .search-bar > [data-react-toolbox="progress-bar"] {
   padding-top: 40px;
+  color: black;
 }
