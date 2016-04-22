@@ -35,21 +35,21 @@ class App extends React.Component {
       audioData: new Uint8Array(100),
       savedSongs: [
         {
-          imagePath: "https://i1.sndcdn.com/artworks-000090789132-5e3qzf-large.jpg", 
-          contentId: 167370242, 
-          creator: "Cindy Huynh", 
-          songTitle: "Crazy In Love (Fifty Shades Of Grey) - Sofia Karlberg (Beyoncé Cover)", 
-          apiSource: "SoundCloud",
-        }
+          imagePath: 'https://i1.sndcdn.com/artworks-000090789132-5e3qzf-large.jpg',
+          contentId: 167370242,
+          creator: 'Cindy Huynh',
+          songTitle: 'Crazy In Love (Fifty Shades Of Grey) - Sofia Karlberg (Beyoncé Cover)',
+          apiSource: 'SoundCloud',
+        },
       ],
       queuedSongs: [
-        
+
       ],
       songFeatures: {
         acousticness: 0.5,
         danceability: 0.5,
         energy: 0.5,
-        id: "713jEiNE8oXkHJvqiKlo2Q",
+        id: '713jEiNE8oXkHJvqiKlo2Q',
         instrumentalness: 0.5,
         key: 2, // see: https://en.wikipedia.org/wiki/Pitch_class
         liveness: 0.5,
@@ -58,7 +58,7 @@ class App extends React.Component {
         speechiness: 0.4, // anything over .6 is talk, not music
         tempo: 120,
         time_signature: 4,
-        valence: 0.5 // 1 is positive, 0 is negative
+        valence: 0.5, // 1 is positive, 0 is negative
       },
     };
     this.handleSearch = this.handleSearch.bind(this);
@@ -92,7 +92,8 @@ class App extends React.Component {
   }
 
   handlePlay(track) {
-    // console.log('Here\s the artist in handleCardPlay', track.creator, 'here is the track', track.songTitle);
+    // console.log('Here\s the artist in handleCardPlay',
+    // track.creator, 'here is the track', track.songTitle);
     getAudioFeatures(track.creator, track.songTitle)
       .then((results) => {
         this.setState({
@@ -126,9 +127,9 @@ class App extends React.Component {
   }
 
   handleAddToQueue(song) {
-    let songs = this.state.queuedSongs;
-    var alreadyInQueue = false;
-    for (var i = 0; i < songs.length; i++) {
+    const songs = this.state.queuedSongs;
+    let alreadyInQueue = false;
+    for (let i = 0; i < songs.length; i++) {
       if (songs[i].contentId === song.contentId) {
         alreadyInQueue = true;
         break;
@@ -141,30 +142,30 @@ class App extends React.Component {
 
   handleAddToSaved(song) {
     request('POST', '/api/songs/saved', {
-      body: song
+      body: song,
     })
-    .then(function(data) {
-      let song = JSON.parse(data);
+    .then(function updateState(data) {
+      const newSavedSong = JSON.parse(data);
       this.setState({
-        savedSongs: this.state.savedSongs.concat([song]),
+        savedSongs: this.state.savedSongs.concat([newSavedSong]),
       });
     });
   }
 
   handleRemoveFromQueue(song) {
-    let songs = this.state.queuedSongs;
-    let newQueue = []
-    for (var i = 0; i < songs.length; i++) {
+    const songs = this.state.queuedSongs;
+    const newQueue = [];
+    for (let i = 0; i < songs.length; i++) {
       if (song.contentId !== songs[i].contentId) {
         newQueue.push(songs[i]);
       }
     }
     this.setState({
-      queuedSongs: newQueue
-    })
+      queuedSongs: newQueue,
+    });
   }
 
-  handleRemoveFromSaved(song) {
+  handleRemoveFromSaved(/* song */) {
 
   }
 
