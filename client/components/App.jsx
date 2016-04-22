@@ -43,10 +43,7 @@ class App extends React.Component {
         }
       ],
       queuedSongs: [
-        {
-          songTitle: 'TITLE-QUEUED',
-          creator: 'CREATOR-QUEUED',
-        }
+        
       ],
       songFeatures: {
         acousticness: 0.5,
