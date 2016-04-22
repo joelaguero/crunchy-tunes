@@ -20,7 +20,7 @@ passport.use(new GoogleStrategy({
   function(accessToken, refreshToken, profile, cb) {
     User.findOrCreate(
       {
-        where: { 
+        where: {
           googleUserId: profile.id
         },
         defaults: {
@@ -35,4 +35,10 @@ passport.use(new GoogleStrategy({
   }
 ));
 
-module.exports = passport;
+module.exports = {
+  passport: passport,
+  checkAuth: function(req, res, next) {
+    if (req.user) { return next(); }
+    res.redirect('/');
+  },
+};
