@@ -12,9 +12,9 @@ d3Visual.create = function create(el, props, audioData) {
     .data(audioData[0])
     .enter()
     .append('circle')
-    .attr('r', (d) => (d * 0.75))
+    .attr('r', (d) => (d * 0.55))
     .attr('cx', '50%')
-    .attr('cy', '250px')
+    .attr('cy', '150px')
     .attr('class', 'circle');
 
   circles
@@ -33,7 +33,7 @@ d3Visual.update = function update(el, audioData) {
     .attr('class', 'circle');
 
   circles
-    .attr('r', (d) => (d * 0.75))
+    .attr('r', (d) => (d * 0.55))
     .style('fill', () => (`#${Math.floor(Math.random() * 16777215).toString(16)}`))
     .style('opacity', '.05');
 

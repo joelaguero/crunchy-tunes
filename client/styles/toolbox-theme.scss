@@ -26,7 +26,6 @@ $card-font-size: $font-size-small !default;
   cursor: pointer;
 }
 
-
 .card-title {
   font-size: $font-size-small;
   font-family: $preferred-font;
@@ -51,7 +50,7 @@ $card-font-size: $font-size-small !default;
   position: relative;
 }
 
-.card:hover .card-overlay{ 
+.card:hover .card-overlay{
   opacity: 0.1;
 }
 

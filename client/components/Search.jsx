@@ -27,7 +27,6 @@ class Search extends React.Component {
       <Input type="text"
         style={{ width: '500px' }}
         label="Search SoundCloud for some Crunchy Tunes!"
-        icon="search"
         onChange={this.handleChange}
         value ={this.state.searchText}
       />

@@ -1,11 +1,16 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: "Inconsolata", "Courier", monospace;
+  background-color: #fafafa;
+}
+
+audio {
+  width: 100%;
 }
 
 .visualization {
-  background-color: white;
+  background-color: #FAFAFA;
   width: 100%;
   min-height: 300px;
 }
@@ -16,10 +21,10 @@ body {
 }
 
 .main-container {
-  padding-top: 100px;
+  padding-top: 140px;
 }
 
-.cardsContainer {
+.cards-container {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -27,41 +32,48 @@ body {
   width: 100%;
 }
 
-.navBar {
-  padding-top: 10px;
+.card {
+  border: 1px solid #666666;
+  width: 200px;
+  margin: 20px 0px;
+  position: relative;
 }
 
-.appBar {
-  position: fixed;
+.card:hover {
+  background-color: white;
+  border: 1px solid #333333;
+  cursor: pointer;
+}
+
+img.card-thumbnail {
   width: 100%;
+  min-height: 100px;
+  border-bottom: 1px solid black;
 }
 
-.style__card___1QRTe {
-  width: 25% !important;
-
-.appBar .navBar a {
-  color: white;
+img.source-icon {
+  position: absolute;
+  max-width: 30px;
+  max-height: 30px;
+  border-radius: 999px;
+  margin: 10px;
 }
 
-.cardsContainer > [data-react-toolbox="card"] {
-  width: 20%;
+.card-title {
+  padding: 6px;
 }
 
-#app div > [data-react-toolbox="app-bar"] {
+#nav-bar {
+  text-align: center;
+  position: fixed;
+  min-width: 100%;
+  z-index: 999;
+  padding-top: 10px;
+  border-bottom: 1px solid black;
   background-color: white;
 }
 
 .appBar .navBar .search-bar > [data-react-toolbox="progress-bar"] {
   padding-top: 40px;
+  color: black;
 }
-
-.appBar .navBar > [data-react-toolbox="button"] {
-  background-color: #ff4081;
-}
-
-.fixed {
-
-}
-/*.style__circular___2yZZn {
-  padding-top: 40px !important;
-}*/
