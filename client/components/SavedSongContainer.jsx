@@ -3,9 +3,10 @@ import SavedSongEntry from './SavedSongEntry.jsx';
 
 const SavedSongContainer = (props) => (
   <div>
-    <h3>My songs</h3>
+    <h3>MY SONGS</h3>
     {props.savedSongs.map(song =>
         <SavedSongEntry
+          key={song.id}
           handlePlay={props.handlePlay}
           handleAddToQueue={props.handleAddToQueue}
           handleRemoveFromSaved={props.handleRemoveFromSaved}

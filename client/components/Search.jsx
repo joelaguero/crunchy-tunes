@@ -27,6 +27,7 @@ class Search extends React.Component {
         placeholder="Search for music"
         onChange={this.handleChange}
         value ={this.state.searchText}
+        id="search-input"
       />
 
     </span>
