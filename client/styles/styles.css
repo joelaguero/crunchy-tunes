@@ -17,14 +17,29 @@ body {
 }
 
 .main-container {
-  padding-top: 100px;
+  padding-top: 140px;
 }
 
-.cardsContainer {
+.cards-container {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-around;
+  width: 100%;
+}
+
+.card {
+  border: 1px solid #666666;
+  width: 200px;
+  margin: 20px 0px;
+}
+
+.card:hover {
+  background-color: white;
+  border: 1px solid #333333;
+}
+
+img.card-thumbnail {
   width: 100%;
 }
 
@@ -38,21 +53,6 @@ body {
   background-color: white;
 }
 
-.cardsContainer > [data-react-toolbox="card"] {
-  width: 20%;
-}
-
-#app div > [data-react-toolbox="app-bar"] {
-  background-color: white;
-}
-
 .appBar .navBar .search-bar > [data-react-toolbox="progress-bar"] {
   padding-top: 40px;
 }
-
-.appBar .navBar > [data-react-toolbox="button"] {
-  background-color: #ff4081;
-}
-/*.style__circular___2yZZn {
-  padding-top: 40px !important;
-}*/

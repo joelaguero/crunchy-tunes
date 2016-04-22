@@ -1,19 +1,13 @@
 import React from 'react';
-import { Card, CardMedia, CardTitle } from 'react-toolbox/lib/card';
-import classNames from 'classnames';
-import style from '../styles/toolbox-theme';
 
 const CardsContainer = ({ tracks, handlePlay }) => {
   let cards = tracks.map((track) =>
-    <Card onClick={() => handlePlay(track)}
+    <div className="card" onClick={() => handlePlay(track)}
       key={track.contentId}
-      className={classNames(style.card)}
-      style={{ width: '350px', height: '300px', margin: '15px' }}
     >
-      <div className={classNames(style['image-container'])}>
-        <CardTitle
-          className={classNames(style['source-logo'])}
-          avatar={ (() => {
+      <div>
+        <div
+          avatar={(() => {
             switch (track.apiSource) {
               case 'Spotify': return 'http://www.iconarchive.com/download/i98446/dakirby309/simply-styled/Spotify.ico';
               case 'SoundCloud': return 'https://c1.staticflickr.com/9/8082/8292777643_65090144e9.jpg';
@@ -22,20 +16,15 @@ const CardsContainer = ({ tracks, handlePlay }) => {
             }
           })()}
         />
-        <CardMedia
-          aspectRatio="wide"
-          image={track.imagePath}
-        />
+      <img className="card-thumbnail" src={track.imagePath} role="presentation" />
       </div>
-      <div className={classNames(style['card-title'])}>
+      <div>
       {track.songTitle}
       </div>
-      <div className={classNames(style['card-overlay'])}>
-      </div>
-    </Card>
+    </div>
   );
   return (
-    <div className="cardsContainer">
+    <div className="cards-container">
       {cards}
     </div>
   );
@@ -43,7 +32,7 @@ const CardsContainer = ({ tracks, handlePlay }) => {
 
 CardsContainer.propTypes = {
   tracks: React.PropTypes.array.isRequired,
-  handleCardPlay: React.PropTypes.func.isRequired,
+  handlePlay: React.PropTypes.func.isRequired,
 };
 
 export default CardsContainer;

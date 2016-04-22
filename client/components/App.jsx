@@ -1,8 +1,6 @@
 import request from 'then-request';
 
 import React from 'react';
-import AppBar from 'react-toolbox/lib/app_bar';
-import Navigation from 'react-toolbox/lib/navigation';
 
 import Nav from './Nav.jsx';
 import NowPlaying from './NowPlaying.jsx';
