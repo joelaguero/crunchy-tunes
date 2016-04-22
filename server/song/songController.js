@@ -16,7 +16,7 @@ module.exports = {
       .spread(function(song) {
         foundUser.addSong(song)
         .then(function() {
-          res.jsons(addedSong);
+          res.json(addedSong);
         });
       })
     })
