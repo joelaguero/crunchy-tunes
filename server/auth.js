@@ -15,7 +15,6 @@ module.exports.checkAuth = function checkAuth(req, res, next) {
     }
     req.user = user;
     return next();
-    console.log('ERROR after return...');
   }
   res.redirect('/');
 };
