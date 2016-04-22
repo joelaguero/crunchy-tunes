@@ -2,7 +2,7 @@ var express = require('express');
 var path = require('path');
 var bodyParser = require('body-parser');
 var request = require('request'); // "Request" library for Spotify Stuff
-var passport = require(__dirname + '/auth.js').passport;
+var passport = require('passport');
 var session = require('express-session');
 var morgan = require('morgan');
 
@@ -19,15 +19,13 @@ app.use(morgan('dev')); // dev use only
 
 app.use(express.static(__dirname + '/../client'));
 
-app.use(session({
-  secret: 'reinaishere',
-  cookie: { maxAge: 60000 },
-}));
+app.use(session());
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(passport.initialize());
+app.use(passport.session());
 
 router(app, express);
 
