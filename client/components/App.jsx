@@ -35,16 +35,15 @@ class App extends React.Component {
       audioData: new Uint8Array(100),
       savedSongs: [
         {
-          songTitle: 'TITLE-SAVED',
-          creator: 'CREATOR-SAVED',
+          imagePath: "https://i1.sndcdn.com/artworks-000090789132-5e3qzf-large.jpg", 
+          contentId: 167370242, 
+          creator: "Cindy Huynh", 
+          songTitle: "Crazy In Love (Fifty Shades Of Grey) - Sofia Karlberg (Beyoncé Cover)", 
+          apiSource: "SoundCloud",
         }
-
       ],
       queuedSongs: [
-        {
-          songTitle: 'TITLE-QUEUED',
-          creator: 'CREATOR-QUEUED',
-        }
+        
       ],
       songFeatures: {
         acousticness: 0.5,
@@ -64,10 +63,10 @@ class App extends React.Component {
     };
     this.handleSearch = this.handleSearch.bind(this);
     this.handlePlay = this.handlePlay.bind(this);
-    // this.handleAddToQueue = this.handleAddToQueue.bind(this);
-    // this.handleAddToSaved = this.handleAddToSaved.bind(this);
-    // this.handleRemoveFromQueue = this.handleRemoveFromQueue.bind(this);
-    // this.handleRemoveFromSaved = this.handleRemoveFromSaved.bind(this);
+    this.handleAddToQueue = this.handleAddToQueue.bind(this);
+    this.handleAddToSaved = this.handleAddToSaved.bind(this);
+    this.handleRemoveFromQueue = this.handleRemoveFromQueue.bind(this);
+    this.handleRemoveFromSaved = this.handleRemoveFromSaved.bind(this);
   }
 
   componentDidMount() {
@@ -100,6 +99,7 @@ class App extends React.Component {
           songFeatures: results,
         });
         console.log('Audio Features came back to handleCardPlay', results);
+        console.log('track', track);
       });
     this.setState({
       currentTrack: track,
@@ -126,8 +126,16 @@ class App extends React.Component {
   }
 
   handleAddToQueue(song) {
+    let songs = this.state.queuedSongs;
+    var alreadyInQueue = false;
+    for (var i = 0; i < songs.length; i++) {
+      if (songs[i].contentId === song.contentId) {
+        alreadyInQueue = true;
+        break;
+      }
+    }
     this.setState({
-      queuedSongs: this.state.queuedSongs.concat([song]),
+      queuedSongs: alreadyInQueue ? songs : songs.concat([song]),
     });
   }
 
@@ -141,6 +149,23 @@ class App extends React.Component {
         savedSongs: this.state.savedSongs.concat([song]),
       });
     });
+  }
+
+  handleRemoveFromQueue(song) {
+    let songs = this.state.queuedSongs;
+    let newQueue = []
+    for (var i = 0; i < songs.length; i++) {
+      if (song.contentId !== songs[i].contentId) {
+        newQueue.push(songs[i]);
+      }
+    }
+    this.setState({
+      queuedSongs: newQueue
+    })
+  }
+
+  handleRemoveFromSaved(song) {
+
   }
 
   render() {
@@ -167,7 +192,7 @@ class App extends React.Component {
             <div className="col-8-12">
               <CardsContainer
                 tracks={this.state.tracks}
-                handleCardPlay={this.handlePlay}
+                handlePlay={this.handlePlay}
                 handleAddToQueue={this.handleAddToQueue}
                 handleAddToSaved={this.handleAddToSaved}
               />

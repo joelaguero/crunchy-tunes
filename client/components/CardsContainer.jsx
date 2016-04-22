@@ -3,9 +3,9 @@ import { Card, CardMedia, CardTitle } from 'react-toolbox/lib/card';
 import classNames from 'classnames';
 import style from '../styles/toolbox-theme';
 
-const CardsContainer = ({ tracks, handleCardPlay }) => {
+const CardsContainer = ({ tracks, handlePlay }) => {
   let cards = tracks.map((track) =>
-    <Card onClick={() => handleCardPlay(track)}
+    <Card onClick={() => handlePlay(track)}
       key={track.contentId}
       className={classNames(style.card)}
       style={{ width: '350px', height: '300px', margin: '15px' }}
