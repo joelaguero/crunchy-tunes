@@ -126,8 +126,16 @@ class App extends React.Component {
   }
 
   handleAddToQueue(song) {
+    let songs = this.state.queuedSongs;
+    var alreadyInQueue = false;
+    for (var i = 0; i < songs.length; i++) {
+      if (songs[i].contentId === song.contentId) {
+        alreadyInQueue = true;
+        break;
+      }
+    }
     this.setState({
-      queuedSongs: this.state.queuedSongs.concat([song]),
+      queuedSongs: alreadyInQueue ? songs : songs.concat([song]),
     });
   }
 
