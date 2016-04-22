@@ -35,10 +35,12 @@ class App extends React.Component {
       audioData: new Uint8Array(100),
       savedSongs: [
         {
-          songTitle: 'TITLE-SAVED',
-          creator: 'CREATOR-SAVED',
+          imagePath: "https://i1.sndcdn.com/artworks-000090789132-5e3qzf-large.jpg", 
+          contentId: 167370242, 
+          creator: "Cindy Huynh", 
+          songTitle: "Crazy In Love (Fifty Shades Of Grey) - Sofia Karlberg (Beyoncé Cover)", 
+          apiSource: "SoundCloud",
         }
-
       ],
       queuedSongs: [
         {
@@ -100,6 +102,7 @@ class App extends React.Component {
           songFeatures: results,
         });
         console.log('Audio Features came back to handleCardPlay', results);
+        console.log('track', track);
       });
     this.setState({
       currentTrack: track,
