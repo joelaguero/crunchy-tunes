@@ -72,7 +72,7 @@ class App extends React.Component {
 
   componentDidMount() {
     const self = this;
-    queryAll({ query: 'Odesza',
+    queryAll({ query: 'Beyonce',
       })
       .then((results) => {
         self.setState({
