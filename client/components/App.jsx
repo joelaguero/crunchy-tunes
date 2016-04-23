@@ -121,9 +121,17 @@ class App extends React.Component {
   handleAddToSaved(song) {
     request('POST', '/api/songs/saved', {
       json: song,
-    })
-    .then(() => {
-      // update state
+    });
+    const songs = this.state.savedSongs;
+    let alreadyInSaved = false;
+    for (let i = 0; i < songs.length; i++) {
+      if (songs[i].contentId === song.contentId) {
+        alreadyInSaved = true;
+        break;
+      }
+    }
+    this.setState({
+      savedSongs: alreadyInSaved ? songs : songs.concat([song]),
     });
   }
 
@@ -143,9 +151,16 @@ class App extends React.Component {
   handleRemoveFromSaved(song) {
     request('DELETE', '/api/songs/saved', {
       json: song,
-    })
-    .then(() => {
-      // update state
+    });
+    const songs = this.state.savedSongs;
+    const newSaved = [];
+    for (let i = 0; i < songs.length; i++) {
+      if (song.contentId !== songs[i].contentId) {
+        newSaved.push(songs[i]);
+      }
+    }
+    this.setState({
+      savedSongs: newSaved,
     });
   }
 
