@@ -80,6 +80,10 @@ button#hide-visualization {
   width: 100%;
 }
 
+.card > button {
+  margin: 6px;
+}
+
 .card {
   border: 1px solid #666666;
   width: 200px;

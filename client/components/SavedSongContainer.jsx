@@ -1,9 +1,18 @@
 import React from 'react';
 import SavedSongEntry from './SavedSongEntry.jsx';
+import _ from 'underscore';
 
 const SavedSongContainer = (props) => {
-
-  var show = props.user ? 
+  var show;
+  if (props.user && _.isEmpty(props.savedSongs)) {
+    return (
+      <div>
+        <h3>MY SAVED SONGS</h3>
+        <div>You don't have any saved songs. Add some!</div>
+      </div>
+    )
+  }
+  show = props.user ?
     (
       <div>
       <h3>MY SAVED SONGS</h3>
