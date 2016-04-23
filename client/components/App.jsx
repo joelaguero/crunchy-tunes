@@ -196,12 +196,14 @@ class App extends React.Component {
                   handlePlay={this.handlePlay}
                   handleAddToSaved={this.handleAddToSaved}
                   handleRemoveFromQueue={this.handleRemoveFromQueue}
+                  user={this.state.user}
                   />
                 <SavedSongContainer
                   savedSongs={this.state.savedSongs}
                   handlePlay={this.handlePlay}
                   handleAddToQueue={this.handleAddToQueue}
                   handleRemoveFromSaved={this.handleRemoveFromSaved}
+                  user={this.state.user}
                   />
               </div>
             </div>
@@ -214,7 +216,6 @@ class App extends React.Component {
                 user={this.state.user}
               />
             </div>
-
           </div>
       </div>
     );
