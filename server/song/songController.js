@@ -6,8 +6,6 @@ module.exports = {
     var user = req.user;
     var song = req.body;
 
-    console.log('song is...', song);
-
     if (!user) { return res.sendStatus(404); }
 
     User.findOne({
@@ -20,11 +18,12 @@ module.exports = {
       .spread(function(song) {
         foundUser.addSong(song)
         .then(function() {
-          res.json(song);
+          res.status(201).json(song);
         });
       })
     })
     .catch(function(error) {
+      res.sendStatus(404);
       throw error;
     });
   },
@@ -60,10 +59,15 @@ module.exports = {
       },
     })
     .then(function(foundUser) {
-      Song.destroy({
+      Song.findOne({
         where: {
-          id: song.id,
+          contentId: song.contentId,
         },
+      }).then(function(foundSong) {
+        foundUser.removeSong(foundSong)
+        .then(function() {
+          res.sendStatus(204);
+        });
       });
     });
   },

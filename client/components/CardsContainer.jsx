@@ -1,7 +1,11 @@
 import React from 'react';
 
-const CardsContainer = ({ tracks, handlePlay, handleAddToQueue, handleAddToSaved }) => {
-  let cards = tracks.map((track) =>
+const CardsContainer = ({ tracks, handlePlay, handleAddToQueue, handleAddToSaved, user }) => {
+  let cards = tracks.map((track) => {
+
+    let saveButton = user ? <button onClick={ () => handleAddToSaved(track) }>{'Save'}</button> : null;
+
+    return (
     <div className="card"
       key={track.contentId}
     >
@@ -24,9 +28,12 @@ const CardsContainer = ({ tracks, handlePlay, handleAddToQueue, handleAddToSaved
       {track.songTitle}
       </div>
       <button onClick={ () => handleAddToQueue(track) }>{'Queue'}</button>
-      <button onClick={ () => handleAddToSaved(track) }>{'Save'}</button>
+      {saveButton}
     </div>
-  );
+    )
+
+  });
+
   return (
     <div className="cards-container">
       {cards}

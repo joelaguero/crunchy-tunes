@@ -19,7 +19,7 @@ class App extends React.Component {
     const initialState = window.__INITIAL_STATE__ || {};
 
     this.state = {
-      user: initialState.user || '',
+      user: initialState.user,
       savedSongs: initialState.savedSongs || [],
       tracks: [],
       currentTrack: {},
@@ -53,7 +53,7 @@ class App extends React.Component {
 
   componentDidMount() {
     const self = this;
-    queryAll({ query: 'the postal service nothing better',
+    queryAll({ query: 'Belle and Sebastian',
       })
       .then((results) => {
         self.setState({
@@ -67,7 +67,10 @@ class App extends React.Component {
             (data) => {
               self.setState({
                 audioData: data,
+                savedSongs: this.state.savedSongs,
+                queuedSongs: this.state.queuedSongs,
               });
+
             });
         }, 10);
       });
@@ -121,17 +124,20 @@ class App extends React.Component {
   handleAddToSaved(song) {
     request('POST', '/api/songs/saved', {
       json: song,
-    });
-    const songs = this.state.savedSongs;
-    let alreadyInSaved = false;
-    for (let i = 0; i < songs.length; i++) {
-      if (songs[i].contentId === song.contentId) {
-        alreadyInSaved = true;
-        break;
+    })
+    .done(() => {
+
+      const songs = this.state.savedSongs;
+      let alreadyInSaved = false;
+      for (let i = 0; i < songs.length; i++) {
+        if (songs[i].contentId === song.contentId) {
+          alreadyInSaved = true;
+          break;
+        }
       }
-    }
-    this.setState({
-      savedSongs: alreadyInSaved ? songs : songs.concat([song]),
+      this.setState({
+        savedSongs: alreadyInSaved ? songs : ([song]).concat(songs),
+      });
     });
   }
 
@@ -149,18 +155,22 @@ class App extends React.Component {
   }
 
   handleRemoveFromSaved(song) {
+
     request('DELETE', '/api/songs/saved', {
       json: song,
-    });
-    const songs = this.state.savedSongs;
-    const newSaved = [];
-    for (let i = 0; i < songs.length; i++) {
-      if (song.contentId !== songs[i].contentId) {
-        newSaved.push(songs[i]);
+    })
+    .done(() => {
+
+      const songs = this.state.savedSongs;
+      const newSaved = [];
+      for (let i = 0; i < songs.length; i++) {
+        if (song.contentId !== songs[i].contentId) {
+          newSaved.push(songs[i]);
+        }
       }
-    }
-    this.setState({
-      savedSongs: newSaved,
+      this.setState({
+        savedSongs: newSaved,
+      });
     });
   }
 
@@ -179,6 +189,7 @@ class App extends React.Component {
           <Nav
             handleSearch={this.handleSearch}
             searching={this.state.searching}
+            user={this.state.user}
           />
           <div className="main-container grid">
             <div className="col-4-12" id="left-rail-container">
@@ -192,12 +203,14 @@ class App extends React.Component {
                   handlePlay={this.handlePlay}
                   handleAddToSaved={this.handleAddToSaved}
                   handleRemoveFromQueue={this.handleRemoveFromQueue}
+                  user={this.state.user}
                   />
                 <SavedSongContainer
                   savedSongs={this.state.savedSongs}
                   handlePlay={this.handlePlay}
                   handleAddToQueue={this.handleAddToQueue}
                   handleRemoveFromSaved={this.handleRemoveFromSaved}
+                  user={this.state.user}
                   />
               </div>
             </div>
@@ -207,9 +220,9 @@ class App extends React.Component {
                 handlePlay={this.handlePlay}
                 handleAddToQueue={this.handleAddToQueue}
                 handleAddToSaved={this.handleAddToSaved}
+                user={this.state.user}
               />
             </div>
-
           </div>
       </div>
     );
