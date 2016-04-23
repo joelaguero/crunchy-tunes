@@ -48,6 +48,7 @@ class App extends React.Component {
     this.handleAddToSaved = this.handleAddToSaved.bind(this);
     this.handleRemoveFromQueue = this.handleRemoveFromQueue.bind(this);
     this.handleRemoveFromSaved = this.handleRemoveFromSaved.bind(this);
+    this.handleAudioEnded = this.handleAudioEnded.bind(this);
   }
 
   componentDidMount() {
@@ -148,6 +149,22 @@ class App extends React.Component {
 
   }
 
+  handleAudioEnded() {
+    if (this.state.queuedSongs.length > 0) {
+      if (this.state.currentTrack.contentId === this.state.queuedSongs[0].contentId) {
+        this.setState({
+          currentTrack: this.state.queuedSongs[1],
+          queuedSongs: this.state.queuedSongs.slice(1)
+        });
+      } else {
+        this.setState({
+          currentTrack: this.state.queuedSongs[0],
+          queuedSongs: this.state.queuedSongs.slice(1)
+        })
+      }
+    }
+  }
+
   render() {
     return (
       <div>
@@ -169,6 +186,7 @@ class App extends React.Component {
                 <div className="fixed">
                   <NowPlaying audioData={[this.state.audioData]}
                     currentTrack={this.state.currentTrack}
+                    handleAudioEnded={this.handleAudioEnded}
                   />
                   <SongQueueContainer
                     queuedSongs={this.state.queuedSongs}

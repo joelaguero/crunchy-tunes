@@ -7,7 +7,7 @@ const NowPlaying = (props) => (
     <Visualization
       audioData={props.audioData}
     />
-    <SongPlayer track={props.currentTrack} />
+    <SongPlayer track={props.currentTrack} handleAudioEnded={props.handleAudioEnded}/>
   </div>
 );
 
