@@ -124,17 +124,20 @@ class App extends React.Component {
   handleAddToSaved(song) {
     request('POST', '/api/songs/saved', {
       json: song,
-    });
-    const songs = this.state.savedSongs;
-    let alreadyInSaved = false;
-    for (let i = 0; i < songs.length; i++) {
-      if (songs[i].contentId === song.contentId) {
-        alreadyInSaved = true;
-        break;
+    })
+    .done(() => {
+
+      const songs = this.state.savedSongs;
+      let alreadyInSaved = false;
+      for (let i = 0; i < songs.length; i++) {
+        if (songs[i].contentId === song.contentId) {
+          alreadyInSaved = true;
+          break;
+        }
       }
-    }
-    this.setState({
-      savedSongs: alreadyInSaved ? songs : ([song]).concat(songs),
+      this.setState({
+        savedSongs: alreadyInSaved ? songs : ([song]).concat(songs),
+      });
     });
   }
 
@@ -152,18 +155,22 @@ class App extends React.Component {
   }
 
   handleRemoveFromSaved(song) {
+
     request('DELETE', '/api/songs/saved', {
       json: song,
-    });
-    const songs = this.state.savedSongs;
-    const newSaved = [];
-    for (let i = 0; i < songs.length; i++) {
-      if (song.contentId !== songs[i].contentId) {
-        newSaved.push(songs[i]);
+    })
+    .done(() => {
+
+      const songs = this.state.savedSongs;
+      const newSaved = [];
+      for (let i = 0; i < songs.length; i++) {
+        if (song.contentId !== songs[i].contentId) {
+          newSaved.push(songs[i]);
+        }
       }
-    }
-    this.setState({
-      savedSongs: newSaved,
+      this.setState({
+        savedSongs: newSaved,
+      });
     });
   }
 
