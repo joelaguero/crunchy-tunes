@@ -1,5 +1,5 @@
 import React from 'react';
-import Search from '../search.jsx';
+import Search from '../components/Search.jsx';
 import TestUtils from 'react-addons-test-utils';
 
 describe('search', () => {

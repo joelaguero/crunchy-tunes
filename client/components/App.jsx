@@ -16,7 +16,7 @@ import getAudioFeatures from '../utils/requestAudioFeatures.js';
 class App extends React.Component {
   constructor(props) {
     super(props);
-    const initialState = window.__INITIAL_STATE__;
+    const initialState = window.__INITIAL_STATE__ || {};
 
     this.state = {
       user: initialState.user || '',

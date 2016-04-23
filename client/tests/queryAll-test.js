@@ -1,5 +1,5 @@
 // test for SoundCloud API
-import queryAll from '../queryAll.js';
+import queryAll from '../utils/queryAll.js';
 
 describe('Query all APIs', () => {
   let returned;

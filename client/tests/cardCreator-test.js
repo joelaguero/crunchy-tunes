@@ -1,4 +1,4 @@
-import cardCreator from '../songCardCreator.js';
+import cardCreator from '../utils/songCardCreator.js';
 
 describe('card creator', () => {
   it('modifies a Spotify song object', () => {

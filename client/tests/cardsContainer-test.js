@@ -1,4 +1,4 @@
-import CardsContainer from '../cardsContainer.jsx';
+import CardsContainer from '../components/CardsContainer.jsx';
 
 describe('cardsContainer', () => {
   it('exists', () => {
