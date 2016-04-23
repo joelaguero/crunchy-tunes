@@ -1,39 +1,7 @@
 language: node_js
 node_js:
-- '5.8'
+- 5.8.0
 before_install:
-- zip -r crunchy-tunes.zip .
-- mkdir -p dpl_cd_upload
-- mv crunchy-tunes.zip dpl_cd_upload/crunchy-tunes.zip
-before_script:
-- npm install -g webpack
-- npm install -g karma-cli
-- npm install -g jasmine
-- export DISPLAY=:99.0
-- sh -e /etc/init.d/xvfb start
-- sleep 3
-deploy:
-- provider: s3
-  access_key_id: AKIAJZ7PHSPW2CQSKMSA
-  secret_access_key: &1
-    secure: TdtNyVQNvmTej/qauFBHfy2mH5Eu7V4YV0jlEeZ1GgPTQ9BBkSbYsBaCIWqjb+QzskoT1kMGjQUX5XsLaKVV6tJKOtVQSoXWceBx47oEZ5fVhIxzqoDFHLUM1T+mgrH2xx+WZt0lt7C9c9WS+IDX+r3FU8hk4CV3ec/wxmAu/bFw2O4B79ohLPVLJDvn2wWqcKP2OWukUlMa2Om32C+TqfO753LHJzXqYsrMr11yey1Uq29BF48FMoSLm33Iqi0gkRXiHTUMoEOjnbfNN2ctdBEp2qbYl8ZGpgOTgOViTugjxIt6kelgbq1R2FRsZ8eF/N9kmNuYSoWVDUE6LB3GIwzfV/2JizXyZF14t0AkhDFCHk7+b/5BndGhW71D/9irlvz3RZZUHRAda1fdTU3ReXLgh3jU06zoKEvzm6zPNWEtbMOtNz4r+ci4ybitjZlXcZFN6Ffw5OQZ1H3urewmHTidejLK3Bafrv6hDiwxmKgYK7jcM1SSNUm/JkG3sywHVPSgigamoK6gifEabAgnTDp/39bgRlk7lwcBytA2Izes/zL2QkNvP1fbLNzt5ntxfd6jRr23/ZUx+u1Rr2d2SPVNbGTWQyMvi81axaByeTggHy7VzUI0lg7MeDRKibZmoHNJMivIQ9NJYFxvUmJi6XMkaZnplRwnXirmWDTw19U=
-  local_dir: dpl_cd_upload
-  skip_cleanup: true
-  region: us-west-2
-  on: &2
-    repo: ImmaculateHangover/crunchy-tunes
-    branch: master
-  bucket: crunchytunes
-- provider: codedeploy
-  access_key_id: AKIAJZ7PHSPW2CQSKMSA
-  secret_access_key: *1
-  bucket: crunchytunes
-  key: crunchy-tunes.zip
-  bundle_type: zip
-  application: crunchy-tunes
-  deployment_group: crunchy-tunes-dep-group
-  region: us-west-2
-  wait_until_deployed: true
-  on: *2
-after_deploy:
-- echo "Deploy Finished!"
+- bash deploy/install.sh | sh
+after_success:
+- bash deploy/deploy.sh | sh
