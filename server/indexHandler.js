@@ -18,7 +18,7 @@ module.exports = function renderIndex(req, res) {
       }
     })
     .then(function(foundUser) {
-      foundUser.getSongs();
+      return foundUser.getSongs();
     })
     .then(function(foundUserSongs) {
       initialState = {
@@ -30,7 +30,6 @@ module.exports = function renderIndex(req, res) {
         },
         savedSongs: foundUserSongs,
       }
-      console.log('initial state', initialState);
       res.send(renderFullPage(initialState));
     })
     .catch(function(error) {
