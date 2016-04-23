@@ -211,6 +211,7 @@ class App extends React.Component {
                 handlePlay={this.handlePlay}
                 handleAddToQueue={this.handleAddToQueue}
                 handleAddToSaved={this.handleAddToSaved}
+                user={this.state.user}
               />
             </div>
 
