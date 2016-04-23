@@ -33,3 +33,4 @@ NowPlaying.propTypes = {
 };
 
 export default NowPlaying;
+
