@@ -1,7 +1,7 @@
-import CardsContainer from '../components/CardsContainer.jsx';
-
-describe('cardsContainer', () => {
-  it('exists', () => {
-    expect(CardsContainer).toBeDefined();
-  });
-});
+// import CardsContainer from '../cardsContainer.jsx';
+//
+// describe('cardsContainer', () => {
+//   it('exists', () => {
+//     expect(CardsContainer).toBeDefined();
+//   });
+// });
