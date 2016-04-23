@@ -9,8 +9,7 @@ import Pane from './Pane.jsx';
 const NowPlaying = (props) => (
   <div>
     <h3>NOW PLAYING</h3>
-    <div>{props.currentTrack.songTitle}</div>
-    
+    <div id="now-playing-song-info">{props.currentTrack.songTitle}</div>
     <Tabs selected={0}>
       <Pane label="Circles">
         <Circles audioData={props.audioData}/>
@@ -23,7 +22,7 @@ const NowPlaying = (props) => (
       </Pane>
     </Tabs>
     <SongPlayer track={props.currentTrack} handleAudioEnded={props.handleAudioEnded}/>
-    
+
   </div>
 );
 
@@ -33,4 +32,3 @@ NowPlaying.propTypes = {
 };
 
 export default NowPlaying;
-

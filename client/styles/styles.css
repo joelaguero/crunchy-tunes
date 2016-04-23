@@ -24,6 +24,24 @@ audio {
   margin-top: 80px;
 }
 
+#left-rail-container {
+  position: relative;
+  padding-left: 20px;
+}
+
+#left-rail {
+  position: fixed;
+}
+
+#left-rail > div {
+  width: 100%;
+  max-width: 322px;
+}
+
+#now-playing-song-info {
+  min-height: 60px;
+}
+
 #account-actions-container {
   margin-top: 12px;
   margin-bottom: 12px;
@@ -33,6 +51,7 @@ audio {
   border-radius: 0px;
   border: 1px solid rgba(0,0,0,0.50);
   background-color: white;
+  font-family: Helvetica, sans-serif;
   padding: 12px 16px;
   margin: 0px 4px;
 }
@@ -40,19 +59,6 @@ audio {
 #account-actions-container > button:hover {
   border: 1px solid rgba(0,0,0,1);
   cursor: pointer;
-}
-
-@media (max-width: 767px) {
-  .main-container.grid {
-    margin-top: 160px;
-  }
-  .card {
-    min-width: 300px;
-  }
-  div#logo {
-    text-align: center;
-    padding-left: 0px;
-  }
 }
 
 .cards-container {
@@ -131,11 +137,6 @@ img.source-icon {
   top: 0px;
 }
 
-.tabs {
-  background: #fff;
-  border: 1px solid #e5e5e5;
-  border-radius: 3px;
-}
 .tabs__labels {
   margin: 0;
   padding: 0;
@@ -143,18 +144,29 @@ img.source-icon {
 .tabs__labels li {
   display: inline-block;
 }
+
+.tabs__labels li a:hover {
+  border-bottom: 1px solid rgba(0,0,0,1);
+}
+
 .tabs__labels li a {
   padding: 8px 12px;
+  margin: 0px 4px;
   display: block;
-  color: #444;
   text-decoration: none;
-  border-bottom: 2px solid #f5f5f5;
+  font-family: Helvetica, sans-serif;
+  font-size: .75em;
+  border-bottom: 1px solid rgba(0,0,0,0.50);;
 }
 .tabs__labels li a.active {
-  border-bottom-color: #337ab7;
+  border-bottom: 1px solid rgba(0,0,0,1);
 }
 .tabs__content {
   padding: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
 }
 
 .fixed {
@@ -164,4 +176,31 @@ img.source-icon {
   overflow-y:scroll;
   padding-top: 75px;
   padding-right: 150px;
+}
+
+@media (max-width: 767px) {
+  .main-container.grid {
+    margin-top: 200px;
+  }
+  .card {
+    min-width: 300px;
+  }
+  div#logo {
+    text-align: center;
+    padding-left: 0px;
+  }
+  #left-rail {
+    position: static;
+  }
+
+  #left-rail > div {
+    min-width: 100%;
+  }
+}
+
+@media (max-width: 1080px) {
+  #left-rail > div {
+    width: 100%;
+    max-width: 270px;
+  }
 }
