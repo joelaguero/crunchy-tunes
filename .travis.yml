@@ -4,9 +4,6 @@ node_js:
 - '5.8.0'
 before_install:
 - bash deploy/install.sh | sh
-
-
-
 before_script:
 - export DISPLAY=:99.0
 - sh -e /etc/init.d/xvfb start
