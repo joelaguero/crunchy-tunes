@@ -33,14 +33,19 @@ Checkout the app in action [here](http://159.203.225.145:8080/)!
 
 Node v5.8
 
+## Tech Stack
+- [React](https://facebook.github.io/react/)
+- [Node](https://nodejs.org/en/) and [Express](http://expressjs.com/)
+- [Sequelize ORM](http://docs.sequelizejs.com/en/latest/) and [MySQL](https://www.mysql.com/)
+
 ## Development
 
-### Setting up MySQL:
+### Setting up MySQL database:
 (If you don't have Homebrew installed, go to http://brew.sh/ to install Homebrew.)
 ```sh
 brew install mysql
 mysql -u root
-create database crunchy
+CREATE DATABASE crunchy
 ```
 
 ### Starting the MySQL server:
@@ -81,7 +86,7 @@ View the build [history]](https://travis-ci.org/HolisticParallelogram/crunchy-tu
 ### Roadmap
 
 View the project roadmap [here](https://waffle.io/HolisticParallelogram/crunchy-tunes)
-[![Stories in 'Backlog'](https://badge.waffle.io/HolisticParallelogram/crunchy-tunes.svg?label=Backlog&title=Backlog)](http://waffle.io/ImmaculateHangover/crunchy-tunes)
+[![Stories in 'Backlog'](https://badge.waffle.io/HolisticParallelogram/crunchy-tunes.svg?label=Backlog&title=Backlog)](http://waffle.io/HolisticParallelogram/crunchy-tunes)
 [![Stories in 'Ready'](https://badge.waffle.io/HolisticParallelogram/crunchy-tunes.svg?label=Ready&title=Ready)](http://waffle.io/HolisticParallelogram/crunchy-tunes)
 [![Stories in 'In Progress'](https://badge.waffle.io/HolisticParallelogram/crunchy-tunes.svg?label=In%20Progress&title=In%20Progress)](http://waffle.io/HolisticParallelogram/crunchy-tunes)
 
