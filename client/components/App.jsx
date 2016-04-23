@@ -19,7 +19,7 @@ class App extends React.Component {
     const initialState = window.__INITIAL_STATE__ || {};
 
     this.state = {
-      user: initialState.user || '',
+      user: initialState.user,
       savedSongs: initialState.savedSongs || [],
       tracks: [],
       currentTrack: {},
@@ -182,6 +182,7 @@ class App extends React.Component {
           <Nav
             handleSearch={this.handleSearch}
             searching={this.state.searching}
+            user={this.state.user}
           />
           <div className="main-container grid">
             <div className="col-4-12" id="left-rail-container">

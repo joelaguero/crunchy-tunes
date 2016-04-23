@@ -1,9 +1,11 @@
 import React from 'react';
 import Search from './Search.jsx';
 
-const Nav = ({ handleSearch, searching }) => {
+const Nav = ({ handleSearch, searching, user }) => {
   const handleLogin = function handleLogin() { window.location = '/login'; };
   const handleLogout = function handleLogout() { window.location = '/logout'; };
+
+  const logInOut = user ? (<button onClick={handleLogout}>{'Sign out'}</button>) : (<button onClick={handleLogin}>{'Sign in'}</button>);
 
   return (
     <nav id="nav-bar" className="grid">
@@ -14,8 +16,7 @@ const Nav = ({ handleSearch, searching }) => {
         <Search handleSearch = {handleSearch} searching={searching} />
       </div>
       <div id="account-actions-container" className="col-3-12">
-        <button onClick={handleLogin}>{'Sign in'}</button>
-        <button onClick={handleLogout}>{'Sign out'}</button>
+        {logInOut}
       </div>
     </nav>
   );
