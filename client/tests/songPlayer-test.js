@@ -1,4 +1,4 @@
-import SongPlayer from '../songplayer.jsx';
+import SongPlayer from '../components/SongPlayer.jsx';
 
 describe('SongPlayer', () => {
   it('exists', () => {

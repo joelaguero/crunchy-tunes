@@ -1,5 +1,5 @@
 // test for SoundCloud API
-import searchSoundCloud from '../requestSoundCloudUtils.js';
+import searchSoundCloud from '../utils/requestSoundCloudUtils.js';
 
 describe('SoundCloud search API request', () => {
   let returned;
