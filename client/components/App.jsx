@@ -181,6 +181,26 @@ class App extends React.Component {
             searching={this.state.searching}
           />
           <div className="main-container grid">
+            <div className="col-4-12" id="left-rail-container">
+              <div id="left-rail">
+                <NowPlaying audioData={[this.state.audioData]}
+                  currentTrack={this.state.currentTrack}
+                  handleAudioEnded={this.handleAudioEnded}
+                  />
+                <SongQueueContainer
+                  queuedSongs={this.state.queuedSongs}
+                  handlePlay={this.handlePlay}
+                  handleAddToSaved={this.handleAddToSaved}
+                  handleRemoveFromQueue={this.handleRemoveFromQueue}
+                  />
+                <SavedSongContainer
+                  savedSongs={this.state.savedSongs}
+                  handlePlay={this.handlePlay}
+                  handleAddToQueue={this.handleAddToQueue}
+                  handleRemoveFromSaved={this.handleRemoveFromSaved}
+                  />
+              </div>
+            </div>
             <div className="col-8-12">
               <CardsContainer
                 tracks={this.state.tracks}
@@ -190,26 +210,6 @@ class App extends React.Component {
               />
             </div>
 
-            <div className="col-4-12">
-                <div className="fixed">
-                  <NowPlaying audioData={[this.state.audioData]}
-                    currentTrack={this.state.currentTrack}
-                    handleAudioEnded={this.handleAudioEnded}
-                  />
-                  <SongQueueContainer
-                    queuedSongs={this.state.queuedSongs}
-                    handlePlay={this.handlePlay}
-                    handleAddToSaved={this.handleAddToSaved}
-                    handleRemoveFromQueue={this.handleRemoveFromQueue}
-                  />
-                  <SavedSongContainer
-                    savedSongs={this.state.savedSongs}
-                    handlePlay={this.handlePlay}
-                    handleAddToQueue={this.handleAddToQueue}
-                    handleRemoveFromSaved={this.handleRemoveFromSaved}
-                  />
-                </div>
-            </div>
           </div>
       </div>
     );
