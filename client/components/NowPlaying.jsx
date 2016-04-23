@@ -18,7 +18,7 @@ const NowPlaying = (props) => (
         <Bars audioData={props.audioData}/>
       </Pane>
       <Pane label="Moods">
-        <Moods audioData={props.audioData}/>
+        <Moods audioData={props.audioData} songFeatures={props.songFeatures}/>
       </Pane>
     </Tabs>
     <SongPlayer track={props.currentTrack} handleAudioEnded={props.handleAudioEnded}/>
@@ -29,6 +29,7 @@ const NowPlaying = (props) => (
 NowPlaying.propTypes = {
   audioData: React.PropTypes.array.isRequired,
   currentTrack: React.PropTypes.object.isRequired,
+  songFeatures: React.PropTypes.object.isRequired,
 };
 
 export default NowPlaying;

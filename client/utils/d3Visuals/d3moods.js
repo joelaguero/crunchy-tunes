@@ -2,7 +2,19 @@ import d3 from 'd3';
 
 const d3moods = {};
 
-d3moods.create = function create(el, props, audioData) {
+d3moods.generate = {
+  r: 0,
+  g: 255,
+  b: 0,
+  valence: 0,
+};
+
+d3moods.create = function create(el, props, audioData, songFeatures) {
+  
+  console.log('songFeatures', songFeatures.valence);
+
+  this.generate.valence = songFeatures.valence;
+
   const svg = d3.select(el).append('svg')
     .attr('class', 'visualization-canvas')
     .attr('width', props.width)
@@ -21,31 +33,16 @@ d3moods.create = function create(el, props, audioData) {
     .style('fill', () => (`#${Math.floor(Math.random() * 16777215).toString(16)}`))
     .style('opacity', '.05');
 
-
   const bands = audioData[0].length;
 
-  // const spectrogram = d3.select(el).append('svg')
-  //   .attr('class', 'visualization-canvas')
-  //   .attr('width', props.width)
-  //   .attr('height', props.height);
-
-  const bars = svg.selectAll('rect')
-    .data(audioData[0])
-    .enter()
-    .append('rect')
-    .attr('height', (d) => ((d / 255) * 100 + '%'))
-    .attr('width', (d) => ((100 / bands * 0.5) + '%'))
-    .attr('x', (d, i) => ((i * 5) + 'px'))
-    .attr('y', (d) => (100 - (d / 255) * 100) + '%')
-    .attr('class', 'rect');
-
-  bars
-    .style('fill', () => ('#000'))
-    .style('opacity', '.90');
 };
 
 d3moods.update = function update(el, audioData) {
   const svg = d3.select(el).select('svg');
+
+  var color = d3.scale.linear()
+    .domain([-1, -0.5, 0, 0.5, 1])
+    .range(["red", "yellow", "green", "blue", "purple"]);
 
   const circles = svg.selectAll('.circle')
     .data(audioData[0]);
@@ -56,27 +53,10 @@ d3moods.update = function update(el, audioData) {
 
   circles
     .attr('r', (d) => (d * 0.55))
-    .style('fill', () => (`#${Math.floor(Math.random() * 16777215).toString(16)}`))
-    .style('opacity', '.05');
+    .style('fill', () => ( color(Math.random) )
+    .style('opacity', '.1');
 
   circles
-    .exit()
-    .remove();
-
-  const bars = svg.selectAll('.rect')
-    .data(audioData[0]);
-  bars
-    .enter()
-    .append('rect')
-    .attr('class', 'rect');
-
-  bars
-    .attr('height', (d) => ((d / 255) * 100 + '%'))
-    .attr('y', (d) => (100 - (d / 255) * 100) + '%')
-    .style('fill', () => ('#000'))
-    // .style('opacity', '.05');
-
-  bars
     .exit()
     .remove();
 };
