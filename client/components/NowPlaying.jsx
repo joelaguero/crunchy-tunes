@@ -25,7 +25,7 @@ class NowPlaying extends React.Component {
   render() {
     const visualization = this.state.showVisualization ? (
       <div>
-        <button id="show-hide-visualization" onClick={this.handleShowHide}>Hide Visualization</button>
+        <button className="show-hide-visualization" id="hide-visualization" onClick={this.handleShowHide}>Hide</button>
         <div className="visualization-container">
           <Tabs selected={0}>
             <Pane label="Circles">
@@ -41,8 +41,8 @@ class NowPlaying extends React.Component {
         </div>
       </div>
     ) : (
-      <div>
-        <button id="show-hide-visualization" onClick={this.handleShowHide}>Show Visualization</button>
+      <div id='show-button-container'>
+        <button className="show-hide-visualization" onClick={this.handleShowHide}>Show Visualization</button>
       </div>
     );
     return (
