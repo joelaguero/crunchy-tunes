@@ -53,7 +53,7 @@ d3moods.update = function update(el, audioData) {
 
   circles
     .attr('r', (d) => (d * 0.55))
-    .style('fill', () => ( color(Math.random) )
+    .style('fill', () => (color(.5)) )
     .style('opacity', '.1');
 
   circles
