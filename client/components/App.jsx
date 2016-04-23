@@ -122,11 +122,8 @@ class App extends React.Component {
     request('POST', '/api/songs/saved', {
       json: song,
     })
-    .then(function updateState(data) {
-      const newSavedSong = JSON.parse(data);
-      this.setState({
-        savedSongs: this.state.savedSongs.concat([newSavedSong]),
-      });
+    .then(() => {
+      // update state
     });
   }
 
@@ -143,8 +140,13 @@ class App extends React.Component {
     });
   }
 
-  handleRemoveFromSaved(/* song */) {
-
+  handleRemoveFromSaved(song) {
+    request('DELETE', '/api/songs/saved', {
+      json: song,
+    })
+    .then(() => {
+      // update state
+    });
   }
 
   handleAudioEnded() {
