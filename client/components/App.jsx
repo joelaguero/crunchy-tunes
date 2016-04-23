@@ -51,7 +51,6 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    const initialState = window.__INITIAL_STATE__;
     const self = this;
     queryAll({ query: 'Beyonce',
       })
@@ -74,8 +73,6 @@ class App extends React.Component {
   }
 
   handlePlay(track) {
-    // console.log('Here\s the artist in handleCardPlay',
-    // track.creator, 'here is the track', track.songTitle);
     getAudioFeatures(track.creator, track.songTitle)
       .then((results) => {
         this.setState({

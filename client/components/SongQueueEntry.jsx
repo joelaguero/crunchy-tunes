@@ -7,6 +7,7 @@ const SongQueueEntry = (props) => (
     <button onClick={() => {props.handlePlay(props.song);}}>Play</button>
     <button onClick={() => {props.handleAddToSaved(props.song);}}>Save</button>
     <button onClick={() => {props.handleRemoveFromQueue(props.song);}}>Remove</button>
+    <hr></hr>
   </div>
 );
 

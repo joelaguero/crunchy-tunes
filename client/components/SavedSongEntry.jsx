@@ -7,6 +7,7 @@ const SavedSongEntry = (props) => (
     <button onClick={() => {props.handlePlay(props.song);}}>Play</button>
     <button onClick={() => {props.handleAddToQueue(props.song);}}>Queue</button>
     <button onClick={() => {props.handleRemoveFromSaved(props.song);}}>Remove</button>
+    <hr></hr>
   </div>
 );
 
