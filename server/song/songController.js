@@ -4,19 +4,23 @@ var Song = require(__dirname + '/songModel.js');
 module.exports = {
   saveOne: function(req, res) {
     var user = req.user;
-    var song = req.body.song;
+    var song = req.body;
+
+    console.log('song is...', song);
 
     if (!user) { return res.sendStatus(404); }
 
     User.findOne({
-      where: user
+      where: {
+        googleUserId: user.googleUserId
+      }
     })
     .then(function(foundUser) {
       Song.findOrCreate({ where: song })
       .spread(function(song) {
         foundUser.addSong(song)
         .then(function() {
-          res.json(addedSong);
+          res.json(song);
         });
       })
     })
@@ -46,25 +50,20 @@ module.exports = {
 
   deleteOne: function(req, res) {
     var user = req.user;
-    var song = req.body.song;
+    var song = req.body;
 
     if (!user) { return res.sendStatus(404); }
 
-    Song.findOne({
-      where: song,
+    User.findOne({
+      where: {
+        googleUserId: user.googleUserId
+      },
     })
-    .then(function(foundSong) {
-      User.findOne({
-        where: user,
-      })
-      .then(function(foundUser) {
-        foundUser.removeSong(foundSong);
-      })
-      .then(function() {
-        res.json(foundSong);
-      })
-      .catch(function(error) {
-        throw error;
+    .then(function(foundUser) {
+      Song.destroy({
+        where: {
+          id: song.id,
+        },
       });
     });
   },

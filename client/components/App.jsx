@@ -53,7 +53,7 @@ class App extends React.Component {
 
   componentDidMount() {
     const self = this;
-    queryAll({ query: 'Beyonce',
+    queryAll({ query: 'the postal service nothing better',
       })
       .then((results) => {
         self.setState({
@@ -79,8 +79,6 @@ class App extends React.Component {
         this.setState({
           songFeatures: results,
         });
-        console.log('Audio Features came back to handleCardPlay', results);
-        console.log('track', track);
       });
     this.setState({
       currentTrack: track,
@@ -122,13 +120,10 @@ class App extends React.Component {
 
   handleAddToSaved(song) {
     request('POST', '/api/songs/saved', {
-      body: song,
+      json: song,
     })
-    .then(function updateState(data) {
-      const newSavedSong = JSON.parse(data);
-      this.setState({
-        savedSongs: this.state.savedSongs.concat([newSavedSong]),
-      });
+    .then(() => {
+      // update state
     });
   }
 
@@ -145,28 +140,20 @@ class App extends React.Component {
     });
   }
 
-  handleRemoveFromSaved(/* song */) {
-
+  handleRemoveFromSaved(song) {
+    request('DELETE', '/api/songs/saved', {
+      json: song,
+    })
+    .then(() => {
+      // update state
+    });
   }
 
   handleAudioEnded() {
-    // if (this.state.queuedSongs.length > 0) {
-    //   if (this.state.currentTrack.contentId === this.state.queuedSongs[0].contentId) {
-    //     this.setState({
-    //       currentTrack: this.state.queuedSongs[1],
-    //       queuedSongs: this.state.queuedSongs.slice(1)
-    //     });
-    //   } else {
-    //     this.setState({
-    //       currentTrack: this.state.queuedSongs[0],
-    //       queuedSongs: this.state.queuedSongs.slice(1)
-    //     })
-    //   }
-    // }
     if (this.state.queuedSongs.length > 0) {
       this.setState({
         currentTrack: this.state.queuedSongs[0],
-        queuedSongs: this.state.queuedSongs.slice(1)
+        queuedSongs: this.state.queuedSongs.slice(1),
       });
     }
   }
