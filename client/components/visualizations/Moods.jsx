@@ -11,12 +11,16 @@ class Moods extends React.Component {
     d3moods.create(el, {
       width: '100%',
       height: '100%',
-    }, this.getVisualState());
+    }, this.getVisualState(), this.getSongFeatures() );
   }
 
   componentDidUpdate() {
     const el = this.refs.DOMnode;
-    d3moods.update(el, this.getVisualState());
+    d3moods.update(el, this.getVisualState(), this.getSongFeatures());
+  }
+
+  getSongFeatures() {
+    return this.props.songFeatures;
   }
 
   // helper function for getting the visual state
@@ -27,7 +31,7 @@ class Moods extends React.Component {
 
   render() {
     return (
-        <div ref="DOMnode" className="moods"></div>
+      <div ref="DOMnode" className="moods"></div>
     );
   }
 }

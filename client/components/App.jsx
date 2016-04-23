@@ -197,6 +197,7 @@ class App extends React.Component {
                 <NowPlaying audioData={[this.state.audioData]}
                   currentTrack={this.state.currentTrack}
                   handleAudioEnded={this.handleAudioEnded}
+                  songFeatures={this.state.songFeatures}
                   />
                 <SongQueueContainer
                   queuedSongs={this.state.queuedSongs}

@@ -23,7 +23,6 @@ const getAudioFeatures = (creator, songTitle) => (
           id: songId
         },
         success: function(songFeatures) {
-          console.log('THIS IS songFeatures IN POC', songFeatures);
           if (!songFeatures || songFeatures.error) {
             songFeatures = {
               acousticness: 0.5,
