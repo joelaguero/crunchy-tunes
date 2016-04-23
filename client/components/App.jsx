@@ -24,7 +24,7 @@ class App extends React.Component {
       tracks: [],
       currentTrack: {},
       searching: false,
-      audioData: new Uint8Array(100),
+      audioData: new Uint8Array(1c00),
       queuedSongs: [],
       songFeatures: {
         acousticness: 0.5,
@@ -54,7 +54,7 @@ class App extends React.Component {
   componentDidMount() {
     const self = this;
 
-    queryAll({ query: 'calm electronic' })
+    queryAll({ query: 'Odesza' })
       .then((results) => {
         self.setState({
           tracks: results,
