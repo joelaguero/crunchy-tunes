@@ -3,6 +3,7 @@ import d3 from 'd3';
 const d3circles = {};
 
 d3circles.create = function create(el, props, audioData) {
+  console.log('creating');
   const svg = d3.select(el).append('svg')
     .attr('class', 'visualization-canvas')
     .attr('width', props.width)
@@ -22,7 +23,7 @@ d3circles.create = function create(el, props, audioData) {
     .style('opacity', '.05');
 
   const bands = audioData[0].length;
-  
+
 };
 
 d3circles.update = function update(el, audioData) {
