@@ -6,7 +6,7 @@ const SongQueueContainer = (props) => (
     <h3>NEXT UP</h3>
     {props.queuedSongs.map(song =>
         <SongQueueEntry
-          key={song.id}
+          key={song.contentId}
           handlePlay={props.handlePlay}
           handleAddToSaved={props.handleAddToSaved}
           handleRemoveFromQueue={props.handleRemoveFromQueue}

@@ -6,7 +6,7 @@ const SavedSongContainer = (props) => (
     <h3>MY SONGS</h3>
     {props.savedSongs.map(song =>
         <SavedSongEntry
-          key={song.id}
+          key={song.contentId}
           handlePlay={props.handlePlay}
           handleAddToQueue={props.handleAddToQueue}
           handleRemoveFromSaved={props.handleRemoveFromSaved}

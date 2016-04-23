@@ -67,7 +67,10 @@ class App extends React.Component {
             (data) => {
               self.setState({
                 audioData: data,
+                savedSongs: this.state.savedSongs,
+                queuedSongs: this.state.queuedSongs,
               });
+
             });
         }, 10);
       });
@@ -131,7 +134,7 @@ class App extends React.Component {
       }
     }
     this.setState({
-      savedSongs: alreadyInSaved ? songs : songs.concat([song]),
+      savedSongs: alreadyInSaved ? songs : ([song]).concat(songs),
     });
   }
 
