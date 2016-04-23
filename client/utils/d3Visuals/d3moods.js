@@ -1,8 +1,8 @@
 import d3 from 'd3';
 
-const d3Visual = {};
+const d3moods = {};
 
-d3Visual.create = function create(el, props, audioData) {
+d3moods.create = function create(el, props, audioData) {
   const svg = d3.select(el).append('svg')
     .attr('class', 'visualization-canvas')
     .attr('width', props.width)
@@ -44,7 +44,7 @@ d3Visual.create = function create(el, props, audioData) {
     .style('opacity', '.90');
 };
 
-d3Visual.update = function update(el, audioData) {
+d3moods.update = function update(el, audioData) {
   const svg = d3.select(el).select('svg');
 
   const circles = svg.selectAll('.circle')
@@ -81,4 +81,4 @@ d3Visual.update = function update(el, audioData) {
     .remove();
 };
 
-export default d3Visual;
+export default d3moods;

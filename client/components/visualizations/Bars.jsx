@@ -1,14 +1,14 @@
 import React from 'react';
-import d3Visual from '../utils/d3Visual';
+import d3bars from '../../utils/d3Visuals/d3bars';
 
 // this is the component that contains the visualization. the visualization is rendered
 // by passing data to a d3 object that handles all d3 rendering. the d3 object is
 // designed to be stateless, meaning it doesn't hold on to any state-related data that
 // gets passed to it.
-class Visualization.Circles extends React.Component {
+class Bars extends React.Component {
   componentDidMount() {
     const el = this.refs.DOMnode;
-    d3Visual.create(el, {
+    d3bars.create(el, {
       width: '100%',
       height: '100%',
     }, this.getVisualState());
@@ -16,7 +16,7 @@ class Visualization.Circles extends React.Component {
 
   componentDidUpdate() {
     const el = this.refs.DOMnode;
-    d3Visual.update(el, this.getVisualState());
+    d3bars.update(el, this.getVisualState());
   }
 
   // helper function for getting the visual state
@@ -27,13 +27,13 @@ class Visualization.Circles extends React.Component {
 
   render() {
     return (
-      <div ref="DOMnode" className="visualization"></div>
+        <div ref="DOMnode" className="bars"></div>
     );
   }
 }
 
-Visualization.propTypes = {
+Bars.propTypes = {
   audioData: React.PropTypes.array.isRequired,
 };
 
-export default Visualization;
+export default Bars;

@@ -9,7 +9,7 @@ audio {
   width: 100%;
 }
 
-.visualization, .visualization1, .visualization2 {
+.circles, .moods, .bars {
   background-color: #FAFAFA;
   width: 100%;
   min-height: 300px;

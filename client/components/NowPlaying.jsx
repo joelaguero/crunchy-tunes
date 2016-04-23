@@ -1,7 +1,7 @@
 import React from 'react';
-import Visualization from './Visualization.jsx';
-import Visualization1 from './Visualization1.jsx';
-import Visualization2 from './Visualization2.jsx';
+import Circles from './visualizations/Circles.jsx';
+import Bars from './visualizations/Bars.jsx';
+import Moods from './visualizations/Moods.jsx';
 import SongPlayer from './SongPlayer.jsx';
 import Tabs from './Tabs.jsx';
 import Pane from './Pane.jsx';
@@ -12,14 +12,14 @@ const NowPlaying = (props) => (
     <div>{props.currentTrack.songTitle}</div>
     
     <Tabs selected={0}>
-      <Pane label="Circlz">
-        <Visualization audioData={props.audioData}/>
+      <Pane label="Circles">
+        <Circles audioData={props.audioData}/>
       </Pane>
-      <Pane label="Moody">
-        <Visualization1 audioData={props.audioData}/>
+      <Pane label="Bars">
+        <Bars audioData={props.audioData}/>
       </Pane>
-      <Pane label="Squarz">
-        <Visualization2 audioData={props.audioData}/>
+      <Pane label="Moods">
+        <Moods audioData={props.audioData}/>
       </Pane>
     </Tabs>
     <SongPlayer track={props.currentTrack} handleAudioEnded={props.handleAudioEnded}/>
