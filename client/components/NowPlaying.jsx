@@ -31,6 +31,10 @@ class NowPlaying extends React.Component {
           <div>
             Click a song to start playing music.
           </div>
+          <div className="visualization-container"></div>
+          <SongPlayer track={this.props.currentTrack}
+            handleAudioEnded={this.props.handleAudioEnded}
+          />
         </div>
       )
     }
@@ -57,6 +61,17 @@ class NowPlaying extends React.Component {
         <button className="show-hide-visualization" onClick={this.handleShowHide}>Show Visualization</button>
       </div>
     );
+    if (this.props.currentTrack.apiSource === 'YouTube') {
+      return (
+        <div>
+          <h3>NOW PLAYING</h3>
+          <div id="now-playing-song-info"><strong>Title: </strong>{this.props.currentTrack.songTitle}</div>
+          <SongPlayer track={this.props.currentTrack}
+            handleAudioEnded={this.props.handleAudioEnded}
+          />
+        </div>
+      );
+    }
     return (
       <div>
         <h3>NOW PLAYING</h3>
