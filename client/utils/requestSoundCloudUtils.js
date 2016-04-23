@@ -1,5 +1,6 @@
 import keys from '../../config/keys.js';
 import Promise from 'bluebird';
+import SC from 'soundcloud';
 
 /* SC is installed via a CDN because babel throws an unresolved error when importing it from npm */
 // import SC from 'soundcloud';

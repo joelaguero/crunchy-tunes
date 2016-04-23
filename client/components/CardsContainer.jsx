@@ -1,8 +1,8 @@
 import React from 'react';
 
-const CardsContainer = ({ tracks, handlePlay }) => {
+const CardsContainer = ({ tracks, handlePlay, handleAddToQueue, handleAddToSaved }) => {
   let cards = tracks.map((track) =>
-    <div className="card" onClick={() => handlePlay(track)}
+    <div className="card"
       key={track.contentId}
     >
       <div>
@@ -18,11 +18,13 @@ const CardsContainer = ({ tracks, handlePlay }) => {
           role="presentation"
           className="source-icon"
         />
-      <img className="card-thumbnail" src={track.imagePath || 'http://s3.amazonaws.com/spoonflower/public/design_thumbnails/0122/8590/rrrrrrchevron6bars-1800P-30_shop_preview.png'} role="presentation" />
+      <img onClick={() => handlePlay(track)} className="card-thumbnail" src={track.imagePath || 'http://s3.amazonaws.com/spoonflower/public/design_thumbnails/0122/8590/rrrrrrchevron6bars-1800P-30_shop_preview.png'} role="presentation" />
       </div>
-      <div className="card-title">
+      <div onClick={() => handlePlay(track)} className="card-title">
       {track.songTitle}
       </div>
+      <button onClick={ () => handleAddToQueue(track) }>{'Queue'}</button>
+      <button onClick={ () => handleAddToSaved(track) }>{'Save'}</button>
     </div>
   );
   return (
