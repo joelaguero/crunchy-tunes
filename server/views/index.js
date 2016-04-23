@@ -16,7 +16,6 @@ module.exports = function renderFullPage(initialState) {
       <script>
         window.__INITIAL_STATE__ = ${JSON.stringify(initialState)};
       </script>
-      <script src="https://connect.soundcloud.com/sdk/sdk-3.0.0.js"></script>
       <script src="./dist/bundle.js" async></script>
     </body>
   </html>
