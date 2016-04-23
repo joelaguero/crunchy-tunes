@@ -150,18 +150,24 @@ class App extends React.Component {
   }
 
   handleAudioEnded() {
+    // if (this.state.queuedSongs.length > 0) {
+    //   if (this.state.currentTrack.contentId === this.state.queuedSongs[0].contentId) {
+    //     this.setState({
+    //       currentTrack: this.state.queuedSongs[1],
+    //       queuedSongs: this.state.queuedSongs.slice(1)
+    //     });
+    //   } else {
+    //     this.setState({
+    //       currentTrack: this.state.queuedSongs[0],
+    //       queuedSongs: this.state.queuedSongs.slice(1)
+    //     })
+    //   }
+    // }
     if (this.state.queuedSongs.length > 0) {
-      if (this.state.currentTrack.contentId === this.state.queuedSongs[0].contentId) {
-        this.setState({
-          currentTrack: this.state.queuedSongs[1],
-          queuedSongs: this.state.queuedSongs.slice(1)
-        });
-      } else {
-        this.setState({
-          currentTrack: this.state.queuedSongs[0],
-          queuedSongs: this.state.queuedSongs.slice(1)
-        })
-      }
+      this.setState({
+        currentTrack: this.state.queuedSongs[0],
+        queuedSongs: this.state.queuedSongs.slice(1)
+      });
     }
   }
 

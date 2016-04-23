@@ -8,7 +8,7 @@ import Pane from './Pane.jsx';
 
 const NowPlaying = (props) => (
   <div>
-    <h3>NOW PlAYING</h3>
+    <h3>NOW PLAYING</h3>
     <div>{props.currentTrack.songTitle}</div>
     
     <Tabs selected={0}>
