@@ -4,18 +4,22 @@ var Song = require(__dirname + '/songModel.js');
 module.exports = {
   saveOne: function(req, res) {
     var user = req.user;
-    var song = req.body.song;
+    var song = req.body;
+
+    console.log('song is...', song);
 
     if (!user) { return res.sendStatus(404); }
 
     User.findOne({
-      where: user
+      where: {
+        googleUserId: user.googleUserId
+      }
     })
     .then(function(foundUser) {
       Song.findOrCreate({ where: song })
       .spread(function(song) {
         foundUser.addSong(song)
-        .then(function() {
+        .then(function(addedSong) {
           res.json(addedSong);
         });
       })

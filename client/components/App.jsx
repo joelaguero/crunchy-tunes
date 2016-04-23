@@ -53,7 +53,7 @@ class App extends React.Component {
 
   componentDidMount() {
     const self = this;
-    queryAll({ query: 'Beyonce',
+    queryAll({ query: 'the postal service nothing better',
       })
       .then((results) => {
         self.setState({
@@ -120,7 +120,7 @@ class App extends React.Component {
 
   handleAddToSaved(song) {
     request('POST', '/api/songs/saved', {
-      body: song,
+      json: song,
     })
     .then(function updateState(data) {
       const newSavedSong = JSON.parse(data);
