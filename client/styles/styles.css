@@ -156,3 +156,10 @@ img.source-icon {
 .tabs__content {
   padding: 10px;
 }
+
+.fixed {
+  top: 0;
+  bottom:0;
+  position:fixed;
+  overflow-y:scroll;
+}
