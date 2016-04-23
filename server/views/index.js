@@ -3,7 +3,7 @@ module.exports = function renderFullPage(initialState) {
   <!DOCTYPE html>
   <html>
     <head>
-      <title>New Name</title>
+      <title>FRANKIE CRICKET</title>
       <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
 
       <link rel="stylesheet" href="./styles/styles.css" charset="utf-8">

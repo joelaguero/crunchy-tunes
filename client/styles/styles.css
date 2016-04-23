@@ -47,7 +47,7 @@ audio {
   margin-bottom: 12px;
 }
 
-#account-actions-container > button {
+#account-actions-container > button, button#show-hide-visualization {
   border-radius: 0px;
   border: 1px solid rgba(0,0,0,0.50);
   background-color: white;
