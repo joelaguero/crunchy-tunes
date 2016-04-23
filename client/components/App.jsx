@@ -18,7 +18,6 @@ class App extends React.Component {
     super(props);
     const initialState = window.__INITIAL_STATE__ || {};
 
-
     this.state = {
       user: initialState.user || '',
       savedSongs: initialState.savedSongs || [],
