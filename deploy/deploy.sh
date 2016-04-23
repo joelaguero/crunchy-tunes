@@ -2,14 +2,14 @@
 set -x
 eval `ssh-agent -s` # Start ssh agent
 ssh-add ~/.ssh/id_rsa
-if [ $TRAVIS_BRANCH == 'deployment' ] ; then
+if [ $TRAVIS_BRANCH == 'master' ] ; then
    git init
    git remote add deploy ssh://deploy@159.203.225.145/var/www/frankenstein/.git
    git config user.name "Travis CI"
    git config user.email "andrew.leean.ho@gmail.com"
    git add .
    git commit -m "Deploy"
-   git push --force deploy deployment
+   git push --force deploy master
 else
-   echo "Not deploying, since this branch isn't called \"deployment\"."
+   echo "Not deploying, since this branch isn't called \"master\"."
 fi
