@@ -2,18 +2,8 @@ import d3 from 'd3';
 
 const d3moods = {};
 
-d3moods.generate = {
-  r: 0,
-  g: 255,
-  b: 0,
-  valence: 0,
-};
 
 d3moods.create = function create(el, props, audioData, songFeatures) {
-  
-  console.log('songFeatures', songFeatures.valence);
-
-  this.generate.valence = songFeatures.valence;
 
   const svg = d3.select(el).append('svg')
     .attr('class', 'visualization-canvas')
@@ -37,12 +27,23 @@ d3moods.create = function create(el, props, audioData, songFeatures) {
 
 };
 
-d3moods.update = function update(el, audioData) {
+d3moods.update = function update(el, audioData, songFeatures) {
+  var valence = songFeatures.valence;
+  console.log("Song Valence: ", valence);
+
+  // Ensure valence values don't go out of the color range
+  if (valence < 0.1) {
+    valence = 0.1;
+  }
+  if (valence > 0.9) {
+    valence = 0.9;
+  }
+
   const svg = d3.select(el).select('svg');
 
   var color = d3.scale.linear()
-    .domain([-1, -0.5, 0, 0.5, 1])
-    .range(["red", "yellow", "green", "blue", "purple"]);
+    .domain([0, 0.25, 0.5, 0.75, 1])
+    .range(["purple", "blue", "green", "yellow", "red"]);
 
   const circles = svg.selectAll('.circle')
     .data(audioData[0]);
@@ -53,8 +54,8 @@ d3moods.update = function update(el, audioData) {
 
   circles
     .attr('r', (d) => (d * 0.55))
-    .style('fill', () => (color(.5)) )
-    .style('opacity', '.1');
+    .style('fill', () => (color((Math.random() * 0.2) + valence)) )
+    .style('opacity', '.75');
 
   circles
     .exit()
