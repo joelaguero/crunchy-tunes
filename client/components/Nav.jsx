@@ -6,11 +6,15 @@ const Nav = ({ handleSearch, searching, user }) => {
   const handleLogout = function handleLogout() { window.location = '/logout'; };
 
   const logInOut = user ? (<button onClick={handleLogout}>{'Sign out'}</button>) : (<button onClick={handleLogin}>{'Sign in'}</button>);
+  const greeting = user ? (<div className="greeting">{'Hello, ' + user.firstName + '!'}</div>) : (<div className="greeting">{'Welcome to Frankenstein!'}</div>);
 
   return (
     <nav id="nav-bar" className="grid">
       <div id="logo-container">
-        <div id="logo" className="col-3-12">FRANKIE</div>
+        <div id="logo" className="col-3-12">
+          FRANKENSTEIN
+          {greeting}
+        </div>
       </div>
       <div id="search-container" className="col-6-12">
         <Search handleSearch = {handleSearch} searching={searching} />
