@@ -60,10 +60,15 @@ module.exports = {
       },
     })
     .then(function(foundUser) {
-      Song.destroy({
+      Song.findOne({
         where: {
           id: song.id,
         },
+      }).then(function(foundSong) {
+        foundUser.removeSong(foundSong)
+        .then(function() {
+          res.sendStatus(204);
+        });
       });
     });
   },
