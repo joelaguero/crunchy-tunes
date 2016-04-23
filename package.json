@@ -1,7 +1,7 @@
 {
-  "name": "CrunchyTunesBoilerplate",
+  "name": "Frankie",
   "version": "1.0.0",
-  "description": "Boilerplate repo for React/Webpack/Babel app",
+  "description": "A music player and aggregator built on the Spotify, YouTube and Soundcloud APIs.",
   "main": "./client/index.html",
   "scripts": {
     "test": "karma start",
@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/immaculatehangover/CrunchyTunesBoilerplate.git"
+    "url": "git+https://github.com/HolisticParallelogram/crunchy-tunes.git"
   },
-  "author": "Crunchy Tunes LLC",
+  "author": "HolisticParallelogram",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/immaculatehangover/reactBoilerplate/issues"
+    "url": "https://github.com/HolisticParallelogram/crunchy-tunes/issues"
   },
-  "homepage": "https://github.com/immaculatehangover/reactBoilerplate#readme",
+  "homepage": "https://github.com/HolisticParallelogram/crunchy-tunes#readme",
   "dependencies": {
     "autoprefixer": "^6.3.6",
     "babel": "^6.1.18",
