@@ -1,5 +1,5 @@
 // test for Spotify API
-import searchSpotify from '../requestSpotifyUtils.js';
+import searchSpotify from '../utils/requestSpotifyUtils.js';
 
 describe('Spotify search API request', () => {
   let returned;

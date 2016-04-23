@@ -1,5 +1,5 @@
 // test for YouTube API
-import searchYouTube from '../requestYouTubeUtils.js';
+import searchYouTube from '../utils/requestYouTubeUtils.js';
 
 
 describe('YouTube search API request', () => {
