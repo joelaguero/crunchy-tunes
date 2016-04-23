@@ -8,8 +8,6 @@
     "dev-start": "webpack -d && nodemon server/precompile.js & webpack --watch",
     "prod-start": "webpack && PORT=80 forever start server/precompile.js",
     "babel-node": "babel-node --presets=es2015",
-    "aws-deploy": "aws deploy create-deployment --application-name crunchy-tunes --deployment-config-name CodeDeployDefault.OneAtATime --deployment-group-name crunchy-tunes-dep-group --s3-location bucket=crunchytunes,bundleType=zip,key=crunchy-tunes.zip",
-    "aws-push": "aws deploy push --application-name crunchy-tunes --description --ignore-hidden-files --s3-location s3://crunchytunes/crunchy-tunes.zip --source ."
   },
   "repository": {
     "type": "git",
