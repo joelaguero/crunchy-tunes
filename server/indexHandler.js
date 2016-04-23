@@ -10,6 +10,8 @@ module.exports = function renderIndex(req, res) {
   var initialState = {};
 
   var sendInitialState = function() {
+    // find the users saved songs and send them back in initial state
+    // send user name, id, and avatar img url back in initial state too
     User.findOne({
       where: {
         googleUserId: user.id
