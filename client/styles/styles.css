@@ -162,4 +162,6 @@ img.source-icon {
   bottom:0;
   position:fixed;
   overflow-y:scroll;
+  padding-top: 75px;
+  padding-right: 150px;
 }
