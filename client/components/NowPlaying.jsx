@@ -51,7 +51,7 @@ class NowPlaying extends React.Component {
               <Bars audioData={this.props.audioData} />
             </Pane>
             <Pane label="Moods">
-              <Moods audioData={this.props.audioData} />
+              <Moods audioData={this.props.audioData} songFeatures={props.songFeatures} />
             </Pane>
           </Tabs>
         </div>
