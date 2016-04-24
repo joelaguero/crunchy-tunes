@@ -43,7 +43,7 @@ passport.deserializeUser(function(user, done) {
 passport.use(new GoogleStrategy({
     clientID: googleConfig['CLIENT_ID'],
     clientSecret: googleConfig['CLIENT_SECRET'],
-    callbackURL: "http://localhost:8080/auth/google/callback"
+    callbackURL: "/auth/google/callback"
   },
   function(accessToken, refreshToken, profile, cb) {
     User.findOrCreate(
