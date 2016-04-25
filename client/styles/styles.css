@@ -195,7 +195,7 @@ img.source-icon {
 
 @media (max-width: 767px) {
   .main-container.grid {
-    margin-top: 150px;
+    margin-top: 130px;
   }
   .card {
     min-width: 300px;
@@ -224,7 +224,9 @@ img.source-icon {
     top: 18px;
     padding: 4px 8px;
   }
-
+  #search-input {
+    margin: 0px 0px;
+  }
 }
 
 @media (max-width: 1080px) {
