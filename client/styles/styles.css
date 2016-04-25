@@ -212,6 +212,12 @@ img.source-icon {
   #left-rail > div {
     min-width: 100%;
   }
+
+  #account-actions-container > button {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
 }
 
 @media (max-width: 1080px) {
