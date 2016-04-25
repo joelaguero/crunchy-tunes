@@ -195,7 +195,7 @@ img.source-icon {
 
 @media (max-width: 767px) {
   .main-container.grid {
-    margin-top: 200px;
+    margin-top: 150px;
   }
   .card {
     min-width: 300px;
@@ -203,6 +203,9 @@ img.source-icon {
   div#logo {
     text-align: center;
     padding-left: 0px;
+  }
+  div.greeting {
+    display: none;
   }
   #left-rail {
     position: static;
@@ -212,12 +215,16 @@ img.source-icon {
   #left-rail > div {
     min-width: 100%;
   }
-
+  #account-actions-container {
+    margin: 0px;
+  }
   #account-actions-container > button {
     position: absolute;
-    right: 0;
-    top: 0;
+    right: 16px;
+    top: 18px;
+    padding: 4px 8px;
   }
+
 }
 
 @media (max-width: 1080px) {
