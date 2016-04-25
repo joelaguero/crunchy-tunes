@@ -258,3 +258,7 @@ img.source-icon {
     max-width: 270px;
   }
 }
+
+.greeting {
+  padding-top: 20px;
+}
