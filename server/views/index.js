@@ -4,7 +4,7 @@ module.exports = function renderFullPage(initialState) {
   <html>
     <head>
       <title>FRANKIE CRICKET</title>
-      <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+      <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
 
       <link rel="stylesheet" href="./styles/styles.css" charset="utf-8">
       <link rel="stylesheet" href="./styles/simple-grid.css" charset="utf-8">

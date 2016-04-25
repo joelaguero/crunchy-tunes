@@ -195,13 +195,39 @@ img.source-icon {
 
 @media (max-width: 767px) {
   .main-container.grid {
-    margin-top: 200px;
+    margin-top: 130px;
   }
   .card {
-    min-width: 300px;
+    width: 100%;
+    margin: 8px 0px;
+  }
+  .card > button {
+    margin: 6px 0px 6px 0px;
+    height: 30px;
+  }
+  img.card-thumbnail {
+    height: 200px;
+    position: relative;
+    top: -30px;
+    width: 200px;
+  }
+  .thumbnail-container {
+    margin-right: 8px;
+    width: 30%;
+    background-color: black;
+    float: left;
+    overflow: hidden;
+    height: 125px;
+    border-right: 1px solid black;
   }
   div#logo {
     text-align: center;
+    padding-left: 0px;
+  }
+  div.greeting {
+    display: none;
+  }
+  #left-rail-container {
     padding-left: 0px;
   }
   #left-rail {
@@ -211,6 +237,18 @@ img.source-icon {
 
   #left-rail > div {
     min-width: 100%;
+  }
+  #account-actions-container {
+    margin: 0px;
+  }
+  #account-actions-container > button {
+    position: absolute;
+    right: 16px;
+    top: 18px;
+    padding: 4px 8px;
+  }
+  #search-input {
+    margin: 0px 0px;
   }
 }
 
