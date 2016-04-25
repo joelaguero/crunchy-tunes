@@ -9,7 +9,7 @@ const CardsContainer = ({ tracks, handlePlay, handleAddToQueue, handleAddToSaved
     <div className="card"
       key={track.contentId}
     >
-      <div>
+      <div className="thumbnail-container">
         <img
           src={(() => {
             switch (track.apiSource) {

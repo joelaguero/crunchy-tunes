@@ -198,7 +198,27 @@ img.source-icon {
     margin-top: 130px;
   }
   .card {
-    min-width: 300px;
+    width: 100%;
+    margin: 8px 0px;
+  }
+  .card > button {
+    margin: 6px 0px 6px 0px;
+    height: 30px;
+  }
+  img.card-thumbnail {
+    height: 200px;
+    position: relative;
+    top: -30px;
+    width: 200px;
+  }
+  .thumbnail-container {
+    margin-right: 8px;
+    width: 30%;
+    background-color: black;
+    float: left;
+    overflow: hidden;
+    height: 125px;
+    border-right: 1px solid black;
   }
   div#logo {
     text-align: center;
@@ -206,6 +226,9 @@ img.source-icon {
   }
   div.greeting {
     display: none;
+  }
+  #left-rail-container {
+    padding-left: 0px;
   }
   #left-rail {
     position: static;
