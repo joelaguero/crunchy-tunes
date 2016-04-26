@@ -54,7 +54,7 @@ class App extends React.Component {
   componentDidMount() {
     const self = this;
 
-    queryAll({ query: 'calm electronic' })
+    queryAll({ query: 'billie holiday' })
       .then((results) => {
         self.setState({
           tracks: results,
