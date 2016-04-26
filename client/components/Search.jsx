@@ -8,7 +8,7 @@ class Search extends React.Component {
     this.state = {
       searchText: '',
     };
-    this.debouncedSearch = _.debounce(this.props.handleSearch, 250);
+    this.debouncedSearch = _.debounce(this.props.handleSearch, 100);
     this.handleChange = this.handleChange.bind(this);
   }
 
