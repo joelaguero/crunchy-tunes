@@ -32,6 +32,8 @@ audio {
 #left-rail {
   position: fixed;
   width: 322px;
+  overflow-y: scroll;
+  height: 100%;
 }
 
 #left-rail > div {
