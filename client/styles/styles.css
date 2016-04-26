@@ -33,7 +33,8 @@ audio {
   position: fixed;
   width: 322px;
   overflow-y: scroll;
-  height: 100%;
+  height: 90%;
+  padding-bottom: 80px;
 }
 
 #left-rail > div {
