@@ -19,11 +19,11 @@ A music player and aggregator built on the Spotify, YouTube and Soundcloud APIs.
 
 1. [Usage](#Usage)
 1. [Requirements](#requirements)
+1. [Tech Stack](#tech-stack)
 1. [Development](#development)
-    1. [Installing Dependencies](#installing-dependencies)
-    1. [Tasks](#tasks)
-1. [Team](#team)
+1. [Team](#legacy-team)
 1. [Contributing](#contributing)
+
 
 ## Usage
 
@@ -71,7 +71,7 @@ npm install -g karma-cli
 npm install -g jasmine
 ```
 
-## Serve your files on a webpack server:
+### Serve your files on a webpack server:
 
 'npm run dev-start'
 
