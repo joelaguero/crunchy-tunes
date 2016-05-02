@@ -1,6 +1,6 @@
 [![Stories in Ready](https://badge.waffle.io/HolisticParallelogram/crunchy-tunes.png?label=ready&title=Ready)](https://waffle.io/HolisticParallelogram/crunchy-tunes)
 # crunchy-tunes
-A music player and aggregator built on the Spotify, YouTube and Soundcloud APIs.
+A music player and aggregator built on the YouTube and Soundcloud APIs. Checkout the app in action [here](http://www.frankiecricket.com/)!
 
 **Screenshot**  
 <img src="http://imgur.com/qCyq7aR.png" width="800px"/>  
@@ -20,17 +20,12 @@ A music player and aggregator built on the Spotify, YouTube and Soundcloud APIs.
 
 ## Table of Contents
 
-1. [Usage](#Usage)
 1. [Requirements](#requirements)
 1. [Tech Stack](#tech-stack)
 1. [Development](#development)
 1. [Team](#legacy-team)
 1. [Contributing](#contributing)
 
-
-## Usage
-
-Checkout the app in action [here](http://www.frankiecricket.com/)
 
 ## Requirements
 
