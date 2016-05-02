@@ -30,7 +30,7 @@ A music player and aggregator built on the Spotify, YouTube and Soundcloud APIs.
 
 ## Usage
 
-Checkout the app in action [here](http://159.203.225.145:8080/)!
+Checkout the app in action [here](http://www.frankiecricket.com/)
 
 ## Requirements
 
