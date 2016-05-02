@@ -2,6 +2,9 @@
 # crunchy-tunes
 A music player and aggregator built on the Spotify, YouTube and Soundcloud APIs.
 
+**Screenshot**  
+<img src="http://imgur.com/qCyq7aR.png" width="800px"/>  
+
 ## Legacy Team
 
   - __Product Owner__: Reina Mei
@@ -31,7 +34,8 @@ Checkout the app in action [here](http://159.203.225.145:8080/)!
 
 ## Requirements
 
-Node v5.8
+Node v5.8  
+Webpack
 
 ## Tech Stack
 - [React](https://facebook.github.io/react/)
@@ -81,7 +85,7 @@ Navigate your browser to localhost: 8080 to view the app.
 
 
 ### Current Build Health [![Build Status](https://travis-ci.org/HolisticParallelogram/crunchy-tunes.svg?branch=master)](https://travis-ci.org/HolisticParallelogram/crunchy-tunes)
-View the build [history]](https://travis-ci.org/HolisticParallelogram/crunchy-tunes/builds)
+View the build [history](https://travis-ci.org/HolisticParallelogram/crunchy-tunes/builds)
 
 ### Roadmap
 
