@@ -1,5 +1,5 @@
 [![Stories in Ready](https://badge.waffle.io/HolisticParallelogram/crunchy-tunes.png?label=ready&title=Ready)](https://waffle.io/HolisticParallelogram/crunchy-tunes)
-# crunchy-tunes
+# Frankie Cricket
 A music player and aggregator built on the YouTube and Soundcloud APIs. Checkout the app in action [here](http://www.frankiecricket.com/)!
 
 **Screenshot**  
